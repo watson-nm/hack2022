@@ -7,13 +7,269 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
-    awesome website
     <main>
-      <div class="container">
-        <div class="row mb-3 text-center">
-          <div clsas="col-md-4 themed-grid-col">column 1</div>
-          <div clsas="col-md-4 themed-grid-col">column 2</div>
-          <div clsas="col-md-4 themed-grid-col">column 3</div>
+      <div class="mt-3 mb-3 text-center">
+        <h1>I forgot to make a character!</h1>
+      </div>
+      <div class="container-fluid">
+        <div class="mb-3">
+          <div class="form-floating">
+            <input class="form-control" id="characterName"/>
+            <label for="characterName">Character Name</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="classLabel"/>
+              <label for="classLabel">Class & Label</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="background"/>
+              <label for="background">Background</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="playerName"/>
+              <label for="playerName">Player Name</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="race"/>
+              <label for="race">Race</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="alignment"/>
+              <label for="alignment">Alignment</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="experiencePoints"/>
+              <label for="experiencePoints">Experience Points</label>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row mb-3">
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="strength"/>
+              <label for="strength">Strength</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="dexterity"/>
+              <label for="dexterity">Dexterity</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="constitution"/>
+              <label for="constitution">Constitution</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="intelligence"/>
+              <label for="intelligence">Intelligence</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="wisdom"/>
+              <label for="wisdom">Wisdom</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="charisma"/>
+              <label for="charisma">Charisma</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3">
+            <h6 class="text-center">Saving Throws</h6>
+            <div class="row">
+              <div class="col-8">Strength</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsStrength"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">Dexterity</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsDexterity"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">Constitution</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsConstitution"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">Intelligence</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsIntelligence"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">Wisdom</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsWisdom"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">Charisma</div>
+              <div class="col-4">
+                <input class="form-control" type="text" id="savingThrowsCharisma"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+            <h6 class="text-center">Skills</h6>
+            <div class="row">
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-8">Acrobatics <span class="text-muted">(Dex)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="acrobatics"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Animal Handling <span class="text-muted">(Wis)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="animalHandling"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Arcana <span class="text-muted">(Int)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="arcana"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Athletics <span class="text-muted">(Str)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="athletics"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Deception <span class="text-muted">(Cha)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="deception"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">History <span class="text-muted">(Int)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="history"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-8">Insight <span class="text-muted">(Wis)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="insight"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Intimidation <span class="text-muted">(Cha)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="intimidation"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Investigation <span class="text-muted">(Int)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="investigation"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Medicine <span class="text-muted">(Wis)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="medicine"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Nature <span class="text-muted">(Int)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="nature"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Perception <span class="text-muted">(Wis)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="perception"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-8">Performance <span class="text-muted">(Cha)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="performance"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Persuasion <span class="text-muted">(Cha)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="persuasion"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Religion <span class="text-muted">(Int)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="religion"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Sleight of Hand <span class="text-muted">(Dex)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="sleightOfHand"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Stealth <span class="text-muted">(Dex)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="stealth"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Survival <span class="text-muted">(Wis)</span></div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="survival"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="inspiration"/>
+              <label for="inspiration">Inspiration</label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="proficiencyBonus"/>
+              <label for="inspiration">Proficiency Bonus</label>
+            </div>
+          </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
       </div>
