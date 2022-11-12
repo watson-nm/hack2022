@@ -10,6 +10,9 @@
     <main>
       <div class="mt-3 mb-3 text-center">
         <h1>I forgot to make a character!</h1>
+        <button class="btn btn-primary" onclick="alert('todo')">
+          ROLL!
+        </button>
       </div>
       <div class="container-fluid">
         <div class="mb-3">
@@ -258,20 +261,227 @@
           </div>
         </div>
         <div class="row mb-3">
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-floating">
               <input class="form-control" id="inspiration"/>
               <label for="inspiration">Inspiration</label>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-4">
             <div class="form-floating">
               <input class="form-control" id="proficiencyBonus"/>
-              <label for="inspiration">Proficiency Bonus</label>
+              <label for="proficiencyBonus">Proficiency Bonus</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="passiveWisdom"/>
+              <label for="passiveWisdom">Passive Wisdom</label>
             </div>
           </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <hr/>
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="armorClass"/>
+              <label for="armorClass">Armor Class</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="initiative"/>
+              <label for="initiative">Initiative</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="speed"/>
+              <label for="speed">Speed</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="maxHitPoints"/>
+              <label for="maxHitPoints">Maximum Hit Points</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="hitPoints"/>
+              <label for="hitPoints">Hit Points</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-floating">
+              <input class="form-control" id="tempHitPoints"/>
+              <label for="tempHitPoints">Temporary Hit Points</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <h6 class="text-center">Hit Dice</h6>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="totalHitDice"/>
+                  <label for="totalHitDice">Total</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="hitDice"/>
+                  <label for="hitDice">Hit Dice</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <h6 class="text-center">Death Saves</h6>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="deathSaveSuccesses"/>
+                  <label for="deathSaveSuccesses">Successes</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="deathSaveFailures"/>
+                  <label for="deathSaveFailures">Failures</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="personalityTraits"/>
+              <label for="personalityTraits">Personality Traits</label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="ideals"/>
+              <label for="ideals">Ideals</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="bonds"/>
+              <label for="bonds">Bonds</label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-floating">
+              <input class="form-control" id="flaws"/>
+              <label for="flaws">Flaws</label>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <h5 class="text-center">Attacks and Spellcasting</h5>
+        <div class="row mb-3">
+          <div class="col-4">
+            <h6 class="text-center">Name</h6>
+          </div>
+          <div class="col-4">
+            <h6 class="text-center">Attack Bonus</h6>
+          </div>
+          <div class="col-4">
+            <h6 class="text-center">Damage/Type</h6>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <input class="form-control" id="attackName1"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackBonus1"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackDamage1"/>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <input class="form-control" id="attackName2"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackBonus2"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackDamage2"/>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <input class="form-control" id="attackName3"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackBonus3"/>
+          </div>
+          <div class="col-4">
+            <input class="form-control" id="attackDamage3"/>
+          </div>
+        </div>
+        <textarea class="form-control" id="attackExtra"></textarea>
+        <hr/>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="proficienciesAndLanguages"></textarea>
+          <label for="proficienciesAndLanguages">Other Proficiencies and Languages</label>
+        </div>
+        <div class="row mb-3">
+          <div class="col-1"></div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="equipmentCP"/>
+              <label for="equipmentCP">CP</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="equipmentSP"/>
+              <label for="equipmentSP">SP</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="equipmentEP"/>
+              <label for="equipmentEP">EP</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="equipmentGP"/>
+              <label for="equipmentGP">GP</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-floating">
+              <input class="form-control" id="equipmentPP"/>
+              <label for="equipmentPP">PP</label>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="equipment"></textarea>
+          <label for="equipment">Equipment</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="featuresAndTraits"></textarea>
+          <label for="featuresAndTraits">Features and Traits</label>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
       </div>
     </main>
   </body>
