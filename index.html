@@ -489,7 +489,7 @@
           return json;
         }
 
-        async function randVals(randClass, randRace, randBackground, randAlignment) {
+        async function randStats(randClass, randRace, randBackground, randAlignment) {
           var strength = 8;
           var dexterity = 8;
           var constitution = 8;
@@ -513,9 +513,46 @@
             points -= 1;
           }
 
-          var race = await apiRequest(randRace.url)
-          var raceBonuses = race.ability_bonuses.ability_score
+          var indices = {
+            str: 0,
+            dex: 1,
+            con: 2,
+            int: 3,
+            wis: 4,
+            cha: 5,
+          }
 
+          var race = await apiRequest(randRace.url);
+          for (const bonus of race.ability_bonuses) {
+            abilities[indices[bonus.ability_score.index]] += bonus.bonus;
+          }
+
+          document.getElementById("strength").value = abilities[0];
+          document.getElementById("dexterity").value = abilities[1];
+          document.getElementById("constitution").value = abilities[2];
+          document.getElementById("intelligence").value = abilities[3];
+          document.getElementById("wisdom").value = abilities[4];
+          document.getElementById("charisma").value = abilities[5];
+
+          var throwIds = {
+            str: 'savingThrowsStrength',
+            dex: 'savingThrowsDexterity',
+            con: 'savingThrowsConstitution',
+            int: 'savingThrowsIntelligence',
+            wis: 'savingThrowsWisdom',
+            cha: 'savingThrowsCharisma',
+          }
+
+          const clazz = await apiRequest(randClass.url);
+
+          for (const id in throwIds) {
+            document.getElementById(throwIds[id]).value = '0';
+          }
+
+          for (const savingThrow of clazz.saving_throws) {
+            // not sure what saving throws are
+            document.getElementById(throwIds[savingThrow.index]).value = Math.floor(abilities[indices[savingThrow.index]] / 2) - 5;
+          }
         }
 
         async function randVals() {
@@ -541,9 +578,9 @@
           background.value = randBackground.name;
           alignment.value = randAlignment.name;
 
-          var temp = await apiRequest(randRace.url)
-          console.log(temp.ability_bonuses)
+          await randStats(randClass, randRace, randBackground, randAlignment);
 
+          // TODO roll skills?
         }
 
       </script>
