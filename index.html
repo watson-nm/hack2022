@@ -14,490 +14,495 @@
           ROLL!
         </button>
       </div>
-      <div class="accordion" id="5eItems">
+      <div class="accordion" id="itemsAccordion">
         <div class="accordion-item">
-          <h2 class="accordion-header" id="charsheet">
+          <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               Character Sheet
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="charsheet" data-bs-parent="#5eItems">
-            <div class="mb-3">
-              <div class="form-floating">
-                <input class="form-control" id="characterName"/>
-                <label for="characterName">Character Name</label>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#itemsAccordion">
+            <div class="accordion-body">
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input class="form-control" id="characterName"/>
+                  <label for="characterName">Character Name</label>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="classLabel"/>
+                    <label for="classLabel">Class & Label</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="background"/>
+                    <label for="background">Background</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="playerName"/>
+                    <label for="playerName">Player Name</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="race"/>
+                    <label for="race">Race</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="alignment"/>
+                    <label for="alignment">Alignment</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="experiencePoints"/>
+                    <label for="experiencePoints">Experience Points</label>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+              <div class="row mb-3">
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="strength"/>
+                    <label for="strength">Strength</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="dexterity"/>
+                    <label for="dexterity">Dexterity</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="constitution"/>
+                    <label for="constitution">Constitution</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="intelligence"/>
+                    <label for="intelligence">Intelligence</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="wisdom"/>
+                    <label for="wisdom">Wisdom</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="charisma"/>
+                    <label for="charisma">Charisma</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-3">
+                  <h6 class="text-center">Saving Throws</h6>
+                  <div class="row">
+                    <div class="col-8">Strength</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsStrength"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">Dexterity</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsDexterity"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">Constitution</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsConstitution"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">Intelligence</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsIntelligence"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">Wisdom</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsWisdom"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">Charisma</div>
+                    <div class="col-4">
+                      <input class="form-control" type="text" id="savingThrowsCharisma"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <h6 class="text-center">Skills</h6>
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-8">Acrobatics <span class="text-muted">(Dex)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="acrobatics"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Animal Handling <span class="text-muted">(Wis)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="animalHandling"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Arcana <span class="text-muted">(Int)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="arcana"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Athletics <span class="text-muted">(Str)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="athletics"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Deception <span class="text-muted">(Cha)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="deception"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">History <span class="text-muted">(Int)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="history"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-8">Insight <span class="text-muted">(Wis)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="insight"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Intimidation <span class="text-muted">(Cha)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="intimidation"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Investigation <span class="text-muted">(Int)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="investigation"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Medicine <span class="text-muted">(Wis)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="medicine"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Nature <span class="text-muted">(Int)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="nature"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Perception <span class="text-muted">(Wis)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="perception"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-8">Performance <span class="text-muted">(Cha)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="performance"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Persuasion <span class="text-muted">(Cha)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="persuasion"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Religion <span class="text-muted">(Int)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="religion"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Sleight of Hand <span class="text-muted">(Dex)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="sleightOfHand"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Stealth <span class="text-muted">(Dex)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="stealth"/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-8">Survival <span class="text-muted">(Wis)</span></div>
+                        <div class="col-4">
+                          <input class="form-control" type="text" id="survival"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="inspiration"/>
+                    <label for="inspiration">Inspiration</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="proficiencyBonus"/>
+                    <label for="proficiencyBonus">Proficiency Bonus</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="passiveWisdom"/>
+                    <label for="passiveWisdom">Passive Wisdom</label>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="armorClass"/>
+                    <label for="armorClass">Armor Class</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="initiative"/>
+                    <label for="initiative">Initiative</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="speed"/>
+                    <label for="speed">Speed</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="maxHitPoints"/>
+                    <label for="maxHitPoints">Maximum Hit Points</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="hitPoints"/>
+                    <label for="hitPoints">Hit Points</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-floating">
+                    <input class="form-control" id="tempHitPoints"/>
+                    <label for="tempHitPoints">Temporary Hit Points</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="row">
+                    <h6 class="text-center">Hit Dice</h6>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" id="totalHitDice"/>
+                        <label for="totalHitDice">Total</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" id="hitDice"/>
+                        <label for="hitDice">Hit Dice</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <h6 class="text-center">Death Saves</h6>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" id="deathSaveSuccesses"/>
+                        <label for="deathSaveSuccesses">Successes</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input class="form-control" id="deathSaveFailures"/>
+                        <label for="deathSaveFailures">Failures</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input class="form-control" id="personalityTraits"/>
+                    <label for="personalityTraits">Personality Traits</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input class="form-control" id="ideals"/>
+                    <label for="ideals">Ideals</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input class="form-control" id="bonds"/>
+                    <label for="bonds">Bonds</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input class="form-control" id="flaws"/>
+                    <label for="flaws">Flaws</label>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="classLabel"/>
-                  <label for="classLabel">Class & Label</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="background"/>
-                  <label for="background">Background</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="playerName"/>
-                  <label for="playerName">Player Name</label>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="race"/>
-                  <label for="race">Race</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="alignment"/>
-                  <label for="alignment">Alignment</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="experiencePoints"/>
-                  <label for="experiencePoints">Experience Points</label>
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mb-3">
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="strength"/>
-                  <label for="strength">Strength</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="dexterity"/>
-                  <label for="dexterity">Dexterity</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="constitution"/>
-                  <label for="constitution">Constitution</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="intelligence"/>
-                  <label for="intelligence">Intelligence</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="wisdom"/>
-                  <label for="wisdom">Wisdom</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-floating">
-                  <input class="form-control" id="charisma"/>
-                  <label for="charisma">Charisma</label>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-3">
-                <h6 class="text-center">Saving Throws</h6>
-                <div class="row">
-                  <div class="col-8">Strength</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsStrength"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8">Dexterity</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsDexterity"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8">Constitution</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsConstitution"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8">Intelligence</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsIntelligence"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8">Wisdom</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsWisdom"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8">Charisma</div>
-                  <div class="col-4">
-                    <input class="form-control" type="text" id="savingThrowsCharisma"/>
-                  </div>
-                </div>
-              </div>
-              <div class="col-9">
-                <h6 class="text-center">Skills</h6>
-                <div class="row">
-                  <div class="col-4">
-                    <div class="row">
-                      <div class="col-8">Acrobatics <span class="text-muted">(Dex)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="acrobatics"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Animal Handling <span class="text-muted">(Wis)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="animalHandling"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Arcana <span class="text-muted">(Int)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="arcana"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Athletics <span class="text-muted">(Str)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="athletics"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Deception <span class="text-muted">(Cha)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="deception"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">History <span class="text-muted">(Int)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="history"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="row">
-                      <div class="col-8">Insight <span class="text-muted">(Wis)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="insight"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Intimidation <span class="text-muted">(Cha)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="intimidation"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Investigation <span class="text-muted">(Int)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="investigation"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Medicine <span class="text-muted">(Wis)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="medicine"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Nature <span class="text-muted">(Int)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="nature"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Perception <span class="text-muted">(Wis)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="perception"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="row">
-                      <div class="col-8">Performance <span class="text-muted">(Cha)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="performance"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Persuasion <span class="text-muted">(Cha)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="persuasion"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Religion <span class="text-muted">(Int)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="religion"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Sleight of Hand <span class="text-muted">(Dex)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="sleightOfHand"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Stealth <span class="text-muted">(Dex)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="stealth"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-8">Survival <span class="text-muted">(Wis)</span></div>
-                      <div class="col-4">
-                        <input class="form-control" type="text" id="survival"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="inspiration"/>
-                  <label for="inspiration">Inspiration</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="proficiencyBonus"/>
-                  <label for="proficiencyBonus">Proficiency Bonus</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="passiveWisdom"/>
-                  <label for="passiveWisdom">Passive Wisdom</label>
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="armorClass"/>
-                  <label for="armorClass">Armor Class</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="initiative"/>
-                  <label for="initiative">Initiative</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="speed"/>
-                  <label for="speed">Speed</label>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="maxHitPoints"/>
-                  <label for="maxHitPoints">Maximum Hit Points</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="hitPoints"/>
-                  <label for="hitPoints">Hit Points</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-floating">
-                  <input class="form-control" id="tempHitPoints"/>
-                  <label for="tempHitPoints">Temporary Hit Points</label>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-6">
-                <div class="row">
-                  <h6 class="text-center">Hit Dice</h6>
-                  <div class="col-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="totalHitDice"/>
-                      <label for="totalHitDice">Total</label>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="hitDice"/>
-                      <label for="hitDice">Hit Dice</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="row">
-                  <h6 class="text-center">Death Saves</h6>
-                  <div class="col-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="deathSaveSuccesses"/>
-                      <label for="deathSaveSuccesses">Successes</label>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="deathSaveFailures"/>
-                      <label for="deathSaveFailures">Failures</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mb-3">
-              <div class="col-6">
-                <div class="form-floating">
-                  <input class="form-control" id="personalityTraits"/>
-                  <label for="personalityTraits">Personality Traits</label>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="form-floating">
-                  <input class="form-control" id="ideals"/>
-                  <label for="ideals">Ideals</label>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-6">
-                <div class="form-floating">
-                  <input class="form-control" id="bonds"/>
-                  <label for="bonds">Bonds</label>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="form-floating">
-                  <input class="form-control" id="flaws"/>
-                  <label for="flaws">Flaws</label>
-                </div>
-              </div>
-            </div>
-            <hr/>
           </div>
-          <h2 class="accordion-header" id="spellsheet">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
               Spell Sheet
             </button>
           </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="spellsheet" data-bs-parent="#5eItems">
-            <div class="container-fluid">
-              <h5 class="text-center">Attacks and Spellcasting</h5>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <h6 class="text-center">Name</h6>
-                </div>
-                <div class="col-4">
-                  <h6 class="text-center">Attack Bonus</h6>
-                </div>
-                <div class="col-4">
-                  <h6 class="text-center">Damage/Type</h6>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <input class="form-control" id="attackName1"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackBonus1"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackDamage1"/>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <input class="form-control" id="attackName2"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackBonus2"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackDamage2"/>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-4">
-                  <input class="form-control" id="attackName3"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackBonus3"/>
-                </div>
-                <div class="col-4">
-                  <input class="form-control" id="attackDamage3"/>
-                </div>
-              </div>
-              <textarea class="form-control" id="attackExtra"></textarea>
-              <hr/>
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="proficienciesAndLanguages"></textarea>
-                <label for="proficienciesAndLanguages">Other Proficiencies and Languages</label>
-              </div>
-              <div class="row mb-3">
-                <div class="col-1"></div>
-                <div class="col-2">
-                  <div class="form-floating">
-                    <input class="form-control" id="equipmentCP"/>
-                    <label for="equipmentCP">CP</label>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#itemsAccordion">
+            <div class="accordion-body">
+              <div class="container-fluid">
+                <h5 class="text-center">Attacks and Spellcasting</h5>
+                <div class="row mb-3">
+                  <div class="col-4">
+                    <h6 class="text-center">Name</h6>
+                  </div>
+                  <div class="col-4">
+                    <h6 class="text-center">Attack Bonus</h6>
+                  </div>
+                  <div class="col-4">
+                    <h6 class="text-center">Damage/Type</h6>
                   </div>
                 </div>
-                <div class="col-2">
-                  <div class="form-floating">
-                    <input class="form-control" id="equipmentSP"/>
-                    <label for="equipmentSP">SP</label>
+                <div class="row mb-3">
+                  <div class="col-4">
+                    <input class="form-control" id="attackName1"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackBonus1"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackDamage1"/>
                   </div>
                 </div>
-                <div class="col-2">
-                  <div class="form-floating">
-                    <input class="form-control" id="equipmentEP"/>
-                    <label for="equipmentEP">EP</label>
+                <div class="row mb-3">
+                  <div class="col-4">
+                    <input class="form-control" id="attackName2"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackBonus2"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackDamage2"/>
                   </div>
                 </div>
-                <div class="col-2">
-                  <div class="form-floating">
-                    <input class="form-control" id="equipmentGP"/>
-                    <label for="equipmentGP">GP</label>
+                <div class="row mb-3">
+                  <div class="col-4">
+                    <input class="form-control" id="attackName3"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackBonus3"/>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control" id="attackDamage3"/>
                   </div>
                 </div>
-                <div class="col-2">
-                  <div class="form-floating">
-                    <input class="form-control" id="equipmentPP"/>
-                    <label for="equipmentPP">PP</label>
-                  </div>
+                <textarea class="form-control" id="attackExtra"></textarea>
+                <hr/>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="proficienciesAndLanguages"></textarea>
+                  <label for="proficienciesAndLanguages">Other Proficiencies and Languages</label>
                 </div>
-                <div class="col-1"></div>
-              </div>
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="equipment"></textarea>
-                <label for="equipment">Equipment</label>
-              </div>
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="featuresAndTraits"></textarea>
-                <label for="featuresAndTraits">Features and Traits</label>
+                <div class="row mb-3">
+                  <div class="col-1"></div>
+                  <div class="col-2">
+                    <div class="form-floating">
+                      <input class="form-control" id="equipmentCP"/>
+                      <label for="equipmentCP">CP</label>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="form-floating">
+                      <input class="form-control" id="equipmentSP"/>
+                      <label for="equipmentSP">SP</label>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="form-floating">
+                      <input class="form-control" id="equipmentEP"/>
+                      <label for="equipmentEP">EP</label>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="form-floating">
+                      <input class="form-control" id="equipmentGP"/>
+                      <label for="equipmentGP">GP</label>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="form-floating">
+                      <input class="form-control" id="equipmentPP"/>
+                      <label for="equipmentPP">PP</label>
+                    </div>
+                  </div>
+                  <div class="col-1"></div>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="equipment"></textarea>
+                  <label for="equipment">Equipment</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="featuresAndTraits"></textarea>
+                  <label for="featuresAndTraits">Features and Traits</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>"
+        </div>
       </div>
 
       <script>
