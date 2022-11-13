@@ -1,0 +1,4053 @@
+<script type="text/javascript">
+var container = document.createElement('html');
+container.innerHTML = `
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I forgot to make a character!</title>
+</head>
+
+<body>
+  <script>
+    (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+      const FCG = require("fantasy-content-generator");
+      
+      const raceMapping = {
+          dragonborn: 'dragonborn',
+          dwarf: 'dwarf',
+          elf: 'elf',
+          gnome: 'gnome',
+          'half-elf': 'halfElf',
+          'half-orc': 'halfOrc',
+          halfing: 'halfling',
+          human: 'human',
+          tiefling: 'tiefling',
+      };
+      
+      globalThis.generateName = function(race) {
+          return FCG.Names.generate({ race: raceMapping[race] }).name;
+      }
+      
+      },{"fantasy-content-generator":5}],2:[function(require,module,exports){
+      module.exports={
+          "establishments": [
+              "general_store",
+              "stable",
+              "inn",
+              "tavern",
+              "armoursmith",
+              "weaponsmith",
+              "leatherworker",
+              "tanner",
+              "bakery"
+          ],
+          "establishmentVocationsRequired": ["owner", "manager"],
+          "establishmentVocationsOptional": ["assistant", "apprentice"],
+          "establishmentVocationsOptionalPerType": {
+              "general_store": ["cleaner"],
+              "stable": ["stable hand", "farrier"],
+              "inn": ["landlord", "bar tender", "glass collector"],
+              "tavern": ["landlord", "bar tender", "glass collector"]
+          },
+          "establishmentSecrets": [
+              "Built on an ancient {Dwarven/Elven/Dragonborn/Orcish} burial ground.",
+              "Built with money stolen from {a local religious institution/a local government}.",
+              "No one knows where the owner came from.",
+              "There are secret {chambers/tunnels/caverns} under the foundations.",
+              "The walls are hollow, for unknown reasons.",
+              "Runes of unknown origin are carved into several pieces of furniture.",
+              "A {magical/mysterious/terrifying} portal to the {Infernal Plane/6th Plane of the Abyss/7th Hell} exists in a {hollow space/cave/cavern} below the foundations.",
+              "This establishment is harbouring a {war/political} refugee in the {attic/loft/basement/cellar}.",
+              "This establishment is harbouring a criminal, as the criminal showed kindness to the owner.",
+              "{Some/Many/All} of the regular patrons are {mimics/lycanthropes/vampires}.",
+              "The owner is {selling/peddling} illegal {magical ingredients/potions/magical scrolls} to their patrons.",
+              "The owner never ages. Patrons who come to learn this keep their mouths shut, as they get discounted prices in return.",
+              "The owner is secretly a {werewolf/demon/mimic/doppelganger} who just wants a quiet life."
+          ],
+          "establishmentNameSetA": [
+              "The {$anyItem}",
+              "The {$nounPhysicalAdjective} {$anyItem}",
+              "The {$sizeAdjective} {$anyItem}",
+              "The {$colourAdjective} {$anyItem}",
+              "The {$nounPhysicalAdjective} {$animal}",
+              "The {$sizeAdjective} {$animal}",
+              "The {$colourAdjective} {$animal}",
+              "{$ownersLastName}'s {$positiveAdjective} {Market/Emporium/Bazaar/Outlet/Store/Boutique}",
+              "{$ownersLastName}'s",
+              "{$lastNameA} & {$lastNameB}'s"
+          ],
+          "establishmentGeneralLookAndAppearances": [
+              "is spacious, with a tall ceiling.",
+              "is big, with wide rooms and tall walls.",
+              "is cramped, with a low ceiling.",
+              "is small, nestled in between 2 larger buildings.",
+              "is open and bright, with large windows and a high ceiling.",
+              "looks old and {worn/\\"well used\\"}.",
+              "looks \\"well used\\", but carefully maintained.",
+              "is exceptionally clean and tidy.",
+              "is very messy, but not particularly \\"dirty\\".",
+              "is grotty, and gives off a shady atmosphere.",
+              "looks brand new, with little obvious wear and tear."
+          ],
+          "establishmentBuiltFrom": [
+              "It is {built/constructed} from {oak/spruce/stone blocks/stone bricks/rough stone blocks/hewn stone blocks/clay bricks} with a {shallow/tall/wide} {slate/thatched/shingle tiled} roof, and the floor is made of {flagstones/old flagstones/wooden floorboards/sturdy wooden floorboards/cobblestones/worn, chipped bricks}."
+          ],
+          "establishmentEnteringAndPatrons": {
+              "i": [
+                  "As you {step into/walk into/enter} the building,",
+                  "As you {step/walk/enter} through the door,",
+                  "As you set foot on the threshold",
+                  "{Entering/Stepping into} the building,"
+              ],
+              "ii": [
+                  "you see there are {some/several/one or two/a few} other patrons present. They {look at/regard/eye/notice} you briefly before ignoring you.",
+                  "{some/several/one or two/a few} of the patrons {look at/regard/eye/spot check/scan} you {cautiously/suspiciously/curiously}, before {turning away/turning back to their business/ignoring you/going about their business}."
+              ]
+          },
+          "establishmentDescriptionsInn": [
+              "the {floor/bar} is sticky, and covered in stains",
+              "most of the furniture seems {very battered, like it's seen better days/quite new, and in good condition}",
+              "a huge {sword/axe/breastplate/shield} hangs on a wooden plate above the bar",
+              "a huge, roaring fire is situated on the far wall",
+              "the smell of {various/strong} {ales/ciders/wines/spirits} wafts across the room, coming from the {basement/cellar/back door}",
+              "{large/small} {ornate/delicate/sturdy looking} lanterns adorn most of the {walls/pillars/walls and pillars}",
+              "the windows are covered with simple wooden shutters"
+          ],
+          "establishmentDescriptionsGeneralStore": [
+              "all manner of items are scattered across the counter",
+              "there are overflowing {boxes/chests/barrels} in all corners of the room - each labelled with {Dwarven runes/Elven script/an unknown language}",
+              "the sounds of animals {squarking/barking/meowing} can be heard coming from the store room",
+              "a small {copper/iron/bronze} bell above the door {chimes/rings/sounds} when the door opens and closes",
+              "posters of various {foods/vegetables} and {items/farming equipment} are nailed to the walls, with faded prices in large, bold letters",
+              "a {sweeping brush is/mop and bucket are} leaning against the {counter/far wall}"
+          ],
+          "establishmentDescriptionsArmoursmith": [
+              "you {notice/eye} a large {iron/steel/bronze} anvil in the {nearest/far} corner",
+              "a selection of {tools/hammers} are hanging from a rack near the furnace",
+              "you realise there is a {thick/thin} coating of {dust/soot/coal dust} coats everything",
+              "a roaring furnace is situated in the centre of the room",
+              "a large {family crest/religious symbol/military insignia}, made of wrought iron, hangs on the {north/west/east/south} wall"
+          ],
+          "establishmentDescriptionsStable": ["horses", "more horses"],
+          "establishmentDescriptionsDefault": [
+              "a {barking/meowing/squarking} noise can be heard from a back room somewhere",
+              "a large chandelier hangs in the centre of the room"
+          ]
+      }
+      
+      },{}],3:[function(require,module,exports){
+      "use strict";
+      var __spreadArrays = (this && this.__spreadArrays) || function () {
+          for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+          for (var r = Array(s), k = 0, i = 0; i < il; i++)
+              for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                  r[k] = a[j];
+          return r;
+      };
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var establishments_json_1 = __importDefault(require("./establishments.json"));
+      var genericData_json_1 = __importDefault(require("../genericData.json"));
+      var npcs_1 = __importDefault(require("../npcs"));
+      var _establishmentSecret = function () {
+          return Utils.parseTemplate(Utils.pick(establishments_json_1.default.establishmentSecrets));
+      };
+      var getNpcStoreFrontNames = function (npcs) {
+          var names = npcs.map(function (npc) {
+              return npc.formattedData.lastName
+                  ? npc.formattedData.lastName
+                  : npc.formattedData.firstName;
+          });
+          return names;
+      };
+      var _establishmentName = function (type, npcs) {
+          var _establishmentNameSetA = function (npcs) {
+              var npcStoreFrontNames = Utils.pickMany(getNpcStoreFrontNames(npcs), 2);
+              var anyItemPool = __spreadArrays(genericData_json_1.default.weapon, genericData_json_1.default.armour, genericData_json_1.default.commonItem);
+              return Utils.parseTemplate(Utils.pick(establishments_json_1.default.establishmentNameSetA), {
+                  anyItem: Utils.pick(anyItemPool),
+                  animal: Utils.pick(genericData_json_1.default.animalSingular),
+                  sizeAdjective: Utils.pick(genericData_json_1.default.sizeAdjectives),
+                  colourAdjective: Utils.pick(genericData_json_1.default.coloursAdjective),
+                  nounPhysicalAdjective: Utils.pick(genericData_json_1.default.nounPhysicalAdjectives),
+                  positiveAdjective: Utils.pick(genericData_json_1.default.positiveAdjective),
+                  ownersLastName: npcStoreFrontNames[0],
+                  lastNameA: npcStoreFrontNames[0],
+                  lastNameB: npcStoreFrontNames[1]
+              });
+          };
+          switch (type) {
+              case "general_store":
+              case "inn":
+              case "tavern":
+              case "armorsmith":
+              case "weaponsmith":
+              case "stable":
+              case "carpenter":
+              case "leatherworker":
+              case "tanner":
+              case "cobbler":
+              default:
+                  return _establishmentNameSetA(npcs);
+          }
+      };
+      var _npcs = function (seed, establishmentType) {
+          var poolOfOptionalVocationTypes = __spreadArrays(establishments_json_1.default.establishmentVocationsOptional, (establishments_json_1.default.establishmentVocationsOptionalPerType[establishmentType] || []));
+          // generate with 1 required, and 1 or 2 optional ones
+          var workerVocations = __spreadArrays([
+              Utils.pick(establishments_json_1.default.establishmentVocationsRequired)
+          ], Utils.pickMany(poolOfOptionalVocationTypes, Utils.rand(1, 2)));
+          return workerVocations.map(function (vocation, index) {
+              var npc = npcs_1.default.generate({
+                  seed: "" + seed + vocation + index
+              });
+              npc.vocation = vocation;
+              npc.formattedData.vocation = Utils.titleCase(vocation);
+              return npc;
+          });
+      };
+      var _establishmentType = function () {
+          return Utils.pick(establishments_json_1.default.establishments);
+      };
+      var _description = function (type) {
+          var lookAndAppearance = "This establishment " +
+              Utils.pick(establishments_json_1.default.establishmentGeneralLookAndAppearances);
+          var builtFrom = Utils.pick(establishments_json_1.default.establishmentBuiltFrom);
+          var enteringAndPatrons = Utils.pick(establishments_json_1.default.establishmentEnteringAndPatrons.i) + " " + Utils.pick(establishments_json_1.default.establishmentEnteringAndPatrons.ii);
+          // get 2 random lines from the establishment specific descriptions, and format them correctly
+          var establishmentSpecificLines = [];
+          switch (type) {
+              case "inn":
+              case "tavern":
+                  establishmentSpecificLines = Utils.pickMany(establishments_json_1.default.establishmentDescriptionsInn, 2);
+                  break;
+              case "armoursmith":
+              case "weaponsmith":
+                  establishmentSpecificLines = Utils.pickMany(establishments_json_1.default.establishmentDescriptionsArmoursmith, 2);
+                  break;
+              default:
+                  establishmentSpecificLines = Utils.pickMany(establishments_json_1.default.establishmentDescriptionsDefault, 2);
+                  break;
+          }
+          var typeSpecificLine = establishmentSpecificLines[0] + ", and " + establishmentSpecificLines[1] + ".";
+          return Utils.parseTemplate(lookAndAppearance + " " + builtFrom + " " + enteringAndPatrons + " " + Utils.firstCharacterUppercase(typeSpecificLine));
+      };
+      exports.generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var type = props.type, seed = props.seed;
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          return Utils.withSeed(seed, function () {
+              type = type ? type : _establishmentType();
+              var npcs = _npcs(seed, type);
+              var name = _establishmentName(type, npcs);
+              var secret = _establishmentSecret();
+              var description = _description(type);
+              return {
+                  seed: seed,
+                  name: name,
+                  type: type,
+                  secret: secret,
+                  npcs: npcs,
+                  description: description,
+                  formattedData: {
+                      name: Utils.titleCase(name),
+                      type: Utils.titleCase(type),
+                      secret: secret,
+                      npcs: npcs,
+                      description: description
+                  }
+              };
+          });
+      };
+      var functions = {
+          generate: exports.generate
+      };
+      exports.default = functions;
+      
+      },{"../genericData.json":4,"../npcs":13,"../utils":22,"./establishments.json":2}],4:[function(require,module,exports){
+      module.exports={
+          "weapon": [
+              "Club",
+              "Dagger",
+              "Greatclub",
+              "Handaxe",
+              "Javelin",
+              "Light Hammer",
+              "Mace",
+              "Quarterstaff",
+              "Sickle",
+              "Spear",
+              "Battleaxe",
+              "Flail",
+              "Glaive",
+              "Greataxe",
+              "Greatsword",
+              "Halberd",
+              "Lance",
+              "Longsword",
+              "Maul",
+              "Morningstar",
+              "Pike",
+              "Rapier",
+              "Scimitar",
+              "Shortsword",
+              "Trident",
+              "War Pick",
+              "Warhammer",
+              "Whip"
+          ],
+          "armour": ["Shield", "Helmet", "Chestplate", "Greaves", "Gloves", "Gauntlet"],
+          "commonItem": [
+              "Abacus",
+              "Barrel",
+              "Basket",
+              "Bell",
+              "Book",
+              "Bottle",
+              "Bucket",
+              "Candle",
+              "Chain",
+              "Chest",
+              "Crowbar",
+              "Flask",
+              "Hammer",
+              "Hourglass",
+              "Jug",
+              "Ladder",
+              "Lamp",
+              "Lantern",
+              "Lock",
+              "Mirror",
+              "Pot",
+              "Potion",
+              "Quiver",
+              "Ram",
+              "Rope",
+              "Shovel",
+              "Soap",
+              "Spyglass",
+              "Torch",
+              "Vial",
+              "Whetstone"
+          ],
+          "nounPhysicalAdjectives": [
+              "creaky",
+              "shiny",
+              "spikey",
+              "hard",
+              "soft",
+              "wet",
+              "leaky",
+              "rusty",
+              "sparkling"
+          ],
+          "coloursAdjective": [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "blue",
+              "indigo",
+              "violet",
+              "purple",
+              "pink",
+              "beige",
+              "brown",
+              "grey",
+              "black",
+              "white",
+              "silver",
+              "golden"
+          ],
+          "sizeAdjectives": [
+              "big",
+              "large",
+              "giant",
+              "colossal",
+              "enormous",
+              "huge",
+              "small",
+              "short",
+              "tiny",
+              "little"
+          ],
+          "positiveAdjective": [
+              "exceptional",
+              "great",
+              "high quality",
+              "quality",
+              "wonderful",
+              "delicious",
+              "tremendous",
+              "exceptional"
+          ],
+          "animalSingular": [
+              "Ape",
+              "Badger",
+              "Bat",
+              "Bear",
+              "Bison",
+              "Boar",
+              "Camel",
+              "Cat",
+              "Cheetah",
+              "Crocodile",
+              "Dog",
+              "Donkey",
+              "Eagle",
+              "Elephant",
+              "Hawk",
+              "Horse",
+              "Hyena",
+              "Leopard",
+              "Lion",
+              "Lizard",
+              "Monkey",
+              "Mule",
+              "Octopus",
+              "Octopus",
+              "Owl",
+              "Pony",
+              "Pony",
+              "Rat",
+              "Raven",
+              "Rhinoceros",
+              "Shark",
+              "Snake",
+              "Squid",
+              "Tiger",
+              "Toad",
+              "Weasel",
+              "Whale",
+              "Wolf",
+              "Wolverine"
+          ]
+      }
+      
+      },{}],5:[function(require,module,exports){
+      "use strict";
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var loots_1 = __importDefault(require("./loots"));
+      exports.Loots = loots_1.default;
+      var magic_items_1 = __importDefault(require("./magic_items"));
+      exports.MagicItems = magic_items_1.default;
+      var names_1 = __importDefault(require("./names"));
+      exports.Names = names_1.default;
+      var npcs_1 = __importDefault(require("./npcs"));
+      exports.NPCs = npcs_1.default;
+      var settlements_1 = __importDefault(require("./settlements"));
+      exports.Settlements = settlements_1.default;
+      var establishments_1 = __importDefault(require("./establishments"));
+      exports.Establishments = establishments_1.default;
+      var storyhooks_1 = __importDefault(require("./storyhooks"));
+      exports.Storyhooks = storyhooks_1.default;
+      
+      },{"./establishments":3,"./loots":7,"./magic_items":9,"./names":11,"./npcs":13,"./settlements":15,"./storyhooks":17}],6:[function(require,module,exports){
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var eStoryhookBanks;
+      (function (eStoryhookBanks) {
+          eStoryhookBanks["NPC_ACTS"] = "NPC_ACTS";
+          eStoryhookBanks["PC_RELATED"] = "PC_RELATED";
+          eStoryhookBanks["LOCATION_BASED_URBAN"] = "LOCATION_BASED_URBAN";
+          eStoryhookBanks["LOCATION_BASED_WILDERNESS"] = "LOCATION_BASED_WILDERNESS";
+      })(eStoryhookBanks = exports.eStoryhookBanks || (exports.eStoryhookBanks = {}));
+      
+      },{}],7:[function(require,module,exports){
+      "use strict";
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var loots_json_1 = __importDefault(require("./loots.json"));
+      exports.generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var source = props.source, seed = props.seed, quantity = props.quantity;
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          quantity = quantity || 1;
+          return Utils.withSeed(seed, function () {
+              source = source || Utils.pick(loots_json_1.default.loot_source);
+              var lootItems = Utils.pickMany(loots_json_1.default.loot_per_loot_source[source], quantity).map(function (l) { return Utils.parseTemplate(l); });
+              return {
+                  seed: seed,
+                  source: source,
+                  lootItems: lootItems,
+                  quantity: quantity,
+                  formattedData: {
+                      lootItems: lootItems,
+                      quantity: quantity,
+                      label: source + " #" + seed.substring(0, 8)
+                  }
+              };
+          });
+      };
+      var functions = {
+          generate: exports.generate
+      };
+      exports.default = functions;
+      
+      },{"../utils":22,"./loots.json":8}],8:[function(require,module,exports){
+      module.exports={
+          "loot_source": [
+              "Humanoid (Wild)"
+          ],
+          "loot_per_loot_source": {
+              "Humanoid (Civilised)": [
+                  "sack containing {2/3/4} rations",
+                  "{green/blue/red} glass bottle of {cheap/expensive/luxurious} {Dwarven/Elvish} {alcohol/wine/ale}"
+              ],
+              "Humanoid (Wild)": [
+                  "a {worn/damaged/rough/primitive} {cloth/woollen} bag of bones.",
+                  "a waterskin {half-filled/fully filled} with {water/stale water/dirty water}.",
+                  "{rotting/spoiled} meat wrapped in {leaves/parchment/ragged cloth/stained cloth/torn animal hide}.",
+                  "{damaged/broken} manacles.",
+                  "a {glass/stone} bottle of strong, harsh alcohol.",
+                  "a small empty cage made of wood.",
+                  "{2/3/4} corked glass bottles.",
+                  "a small jar, holding {5/6/7} fireflies.",
+                  "a {worn/damaged/rough/primitive} bag full of leaves & stems of an unknown plant.",
+                  "a dagger. It is stained with {blood/old blood/dirt/something unknown}.",
+                  "{8/9/10/12/15} arrows tied up with crude string.",
+                  "a necklace made from {string/pewter chain/silver chain/rough string}.",
+                  "a necklace made from {string/pewter chain/silver chain/rough string}. There is a pendant attached. The pendant is made from {jade/ebony/glass/lead/iron/copper/bronze}. It depicts the image of {Sirrion/Reorx/Chislev/Zivilyn/Lunitari/Takhisis/Sargonnas/Chemosh/Zeboim/Hiddukel}",
+                  "a small, {worn/damaged/rough/primitive/weathered/stained} bag of jewellery. Inside is a small collection of rings, necklaces, several earrings and a brooch.",
+                  "a crude animal cage. Inside there are {2/3} live {rats/mice/bats/squirrels}.",
+                  "a crude animal cage. Inside there is a live {rat/mouse/bat/squirrel}.",
+                  "a book. It is badly water damaged, and it's pages cannot be read.",
+                  "several severed fingers, wrapped in bloody {cloth/fabric}. The fingers appear to be {Dwarven/Elvish/Orcish/Human}.",
+                  "a small animal skull, floating in a glass jar filled with {salt water/oil}.",
+                  "the skull of an {Elf/Dwarf/Orc/Gnoll/Tiefling/Human}. It is partially covered in a dark stain.",
+                  "a small, {stone/wooden} box. It is empty. On the lid, there is a carving of {an eye/a sword/the sun/the moon/a religious symbol}.",
+                  "a small bag, containing what appears to be a crude {dice game/card game/collection of figurines}. ",
+                  "a sack of torn up clothing.",
+                  "a length of rope, measuring {20/30/40}ft in total.",
+                  "a length of {primitive/badly wound/crusty, stained} rope, measuring {20/30/40}ft in total.",
+                  "{2/3/4} jars of oil tied together with {rough/fraying} twine. The jars are secured with {bronze/copper/iron} lids.",
+                  "a collected set of {2/3} ornate, sharpened daggers. They appear to be made from {a hard, black wood/glass/granite}.",
+                  "a small set of {iron/bronze/copper} rods, instruments. Many of the pieces are {bent out of shape/badly rusted/cracked}. With some cleaning and repair, they could work as a set of Thieves Tools.",
+                  "a stack of stained, water damaged parchments. Many of the sheets appear to have {Dwarvish/Elvish/Goblin/Draconic/Abyssal} script on them. With care, {15/17/19/20} of the parchments can be salvaged.",
+                  "a rusty, {copper/iron}, oil lamp. It leaks, and appears to be {Dwarvish/Elvish/Human} made. With some repair, it could be made fully functional.",
+                  "a badly tarnished crowbar. The flattened end is covered in a dark {red/black} stain.",
+                  "a silver hand mirror. It is badly {cracked/tarnished}.",
+                  "{2/3}lbs of salted meat, wrapped in {cloth/parchment}.",
+                  "a {glass/stone} jar of acid. The jar's lid is badly fitting, and the acid bubbles and froths as it moves. A {skull/symbol of fire/warning written in Dwarvish} is etched onto the side of the jar.",
+                  "a small, crude chest. It is filled with {apples/partially rotten apples/cooked meats/skulls/empty glass vials}. The chest {has a broken hinge/appears to be badly burnt}.",
+                  "{3/4} vials of basic Poison in a scuffed leather pouch. ",
+                  "a bedroll. It is covered in a large, dark stain, but is in otherwise good condition.",
+                  "a bedroll. It has several gashes down its length, but could be repaired.",
+                  "{3/4} pots and pans of various sizes, tied together with {crude/rough} rope.",
+                  "a note written in {Draconic/Abysmal/Ocrish} script. Some deciphering will show that is appears to be list of commands, focusing on {stealing livestock/ransacking a local settlement/attacking travellers for their wares}.",
+                  "an unholy symbol of {Cyric/Talos/Umberlee}. It is covered in dried blood, and stings when a good creature touches it.",
+                  "a badly {water damaged/burned/torn} spellbook. Though mostly unintelligible, some deciphering shows the book {belongs/belonged} to a {wizard/witch} specialising in {Conjuration/Divination/Transmutation}.",
+                  "crude fishing supplies, including a box of maggots, several {rusty/bent} hooks and a {10/12/15}ft length of wire.",
+                  "a set of clothes, appearing {Dwarvish/Elvish/Human/Halfling} in size and design. They appear {partially burnt/wet and ragged}, and have a large, black stain on the chest.",
+                  "a corked vial of cloudy, {crimson/charcoal/green/teal} coloured liquid. The vial is wrapped in {cloth/fabric} inside a leather pouch. The leather pouch has a {skull/symbol of Bhaal/symbol of Kelemvor/symbol of Myrkul} etched onto it. Investigation will reveal the liquid to be a dosage of {Assassin’s blood/Crawler mucus/Drow poison/Essence of ether/Malice/Pale tincture/Serpent venom}. ",
+                  "{2/3} torches, tied together with rope.",
+                  "a large {stone/bronze/iron} jar with a fastened lid, which is then secured even further with tightly would twine. Inside the jar is a live {tarantula/rat/snake/giant millipede}.",
+                  "a crudely fashioned hunting trap. It is made of {blackened/gnarled} wood and jagged {iron/steel} {hooks/spikes}. It could be used to trap small creatures, such as boar or deer.",
+                  "a set of badly maintained scientific instruments, including a compass, measuring rods, quills and ink. With some repair, they could form a Cartographer's toolkit.",
+                  "the skull of a {Dwarf/Elf/Human/Tiefling/Halfling}. It has been cleaned and bleached white, and has a large, drilled hole in the centre of the crown. {Symbols of Bhaal/Symbols of Cyric/Symbols of Talos/Several Abysmal symbols/Several Draconic symbols} are crudely carved into the temples."
+              ],
+              "Beast": [
+                  "broken {fangs/claws/talons}"
+              ],
+              "Undead": [
+                  "pieces of rotting flesh",
+                  "damaged {amour/weapons/ammunition}"
+              ]
+          }
+      }
+      
+      },{}],9:[function(require,module,exports){
+      "use strict";
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var magic_items_json_1 = __importDefault(require("./magic_items.json"));
+      var genericData_json_1 = __importDefault(require("../genericData.json"));
+      var names_1 = __importDefault(require("../names"));
+      var _type = function () { return Utils.pick(magic_items_json_1.default.types); };
+      var _powerLevel = function () { return Utils.pick(magic_items_json_1.default.power_levels); };
+      var _schoolOfMagic = function (type) {
+          if (type === "weapon") {
+              return Utils.pick(Object.keys(magic_items_json_1.default.school_weapon_effects_per_level));
+          }
+          return Utils.pick(magic_items_json_1.default.schools_of_magic);
+      };
+      var _effects = function (schoolOfMagic, powerLevel) {
+          // each power level of magic item can have a random number of effects. we leverage the template
+          // parser to choose a number of effects
+          var effectsCount = Utils.parseTemplate(magic_items_json_1.default.item_effects_per_level[powerLevel]);
+          // pick a number of effects for the school and power level, for the count of effectsCount
+          // we then run each effect through the template parser too, as the effects themselves contain parseable text
+          return Utils.pickMany(magic_items_json_1.default.school_weapon_effects_per_level[schoolOfMagic][powerLevel], parseInt(effectsCount)).map(Utils.parseTemplate);
+      };
+      var _tagline = function (formattedData) {
+          var taglineTemplate = Utils.pick(magic_items_json_1.default.tagline_templates);
+          var generationContent = {};
+          if (taglineTemplate.includes("tagline_owned_word")) {
+              generationContent.tagline_owned_word = Utils.pick(magic_items_json_1.default.tagline_owned_words);
+          }
+          if (taglineTemplate.includes("owner_first_name_possessive")) {
+              var ownerFirstName = formattedData.owner.split(" ")[0];
+              generationContent.owner_first_name_possessive =
+                  ownerFirstName.substr(-1) === "s"
+                      ? ownerFirstName + "'"
+                      : ownerFirstName + "'s";
+          }
+          return Utils.parseTemplate(taglineTemplate, generationContent);
+      };
+      var generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var seed = props.seed, type = props.type, powerLevel = props.powerLevel, schoolOfMagic = props.schoolOfMagic, effects = props.effects, subtype = props.subtype;
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          return Utils.withSeed(seed, function () {
+              type = type ? type : _type();
+              powerLevel = powerLevel ? powerLevel : _powerLevel();
+              schoolOfMagic = schoolOfMagic ? schoolOfMagic : _schoolOfMagic(type);
+              effects = effects ? effects : _effects(schoolOfMagic, powerLevel);
+              subtype = subtype ? subtype : Utils.pick(genericData_json_1.default[type]);
+              var formattedData = {};
+              switch (powerLevel) {
+                  case "greater":
+                  case "supreme":
+                      formattedData.owner = names_1.default.generate().name;
+                      formattedData.tagline = _tagline(formattedData);
+                      break;
+              }
+              formattedData.title = subtype + " of " + Utils.titleCase(powerLevel) + " " + Utils.titleCase(schoolOfMagic);
+              return {
+                  seed: seed,
+                  type: type,
+                  subtype: subtype,
+                  powerLevel: powerLevel,
+                  schoolOfMagic: schoolOfMagic,
+                  effects: effects,
+                  formattedData: formattedData
+              };
+          });
+      };
+      var functions = {
+          generate: generate
+      };
+      exports.default = functions;
+      
+      },{"../genericData.json":4,"../names":11,"../utils":22,"./magic_items.json":10}],10:[function(require,module,exports){
+      module.exports={
+          "types": ["weapon"],
+          "power_levels": ["minor", "lesser", "greater", "supreme"],
+          "schools_of_magic": [
+              "abjuration",
+              "conjuration",
+              "divination",
+              "enchantment",
+              "evocation",
+              "illusion",
+              "necromancy",
+              "transmutation"
+          ],
+          "item_effects_per_level": {
+              "minor": "{0/0/1}",
+              "lesser": "{0/0/1/1}",
+              "greater": "{1}",
+              "supreme": "{1/1/1/1}"
+          },
+          "school_weapon_effects_per_level": {
+              "conjuration": {
+                  "minor": [
+                      "This weapon has {2/3} charges. While holding this weapon, the wielder can expend a charge to cast {Acid Splash/Poison Spray/Produce Flame} as though they were 1st level. The charges are regained at dawn."
+                  ],
+                  "lesser": [
+                      "This weapon has {2/3/4} charges. While holding this weapon, the wielder can expend a charge to cast {Acid Splash/Poison Spray/Produce Flame} as though they were 5th level. The charges are regained at dawn.",
+                      "On a successful attack, the target must make a DC 14 CON save. On a failure, the targets mouth and stomach is suddenly filled with monstrous {slugs/worms/beetles/insects/maggots}, and they begin to vomit and cough uncontrollably. The target can take no action other than movement for 1d4 turns.",
+                      "On a successful attack, magical {vines/tentacles/ropes} erupt from the weapon, wrapping themselves around the limbs and joints of the targets. The target must make a DC 13 DEX save. On a failure, for 2d4 turns the target's max speed is reduced to 10 ft per turn and they have disadvantage on attack rolls."
+                  ],
+                  "greater": [
+                      "This weapon has {3/4} charges. While holding this weapon, the wielder can expend a charge to cast {Acid Splash/Poison Spray/Produce Flame} as though they were 11th level. The charges are regained at dawn.",
+                      "On a successful attack, the target must make a DC 12 WIS save. On a failure, the target blinks out of existence, and reappears 2d12 feet away. Direction of teleportation is determined by rolling 1d8. If the target reappears inside solid matter, their body replaces the matter. However, the target can become stuck in this manner (for example, reappearing with their leg inside a boulder)."
+                  ],
+                  "supreme": [
+                      "This weapon has 4 charges. While holding this weapon, the wielder can expend a charge to cast {Acid Splash/Poison Spray/Produce Flame} as though they were 17th level. The charges are regained at dawn.",
+                      "This weapon has 2 charges. The wielder can expend a charge to load the blade with a crackling, screeching heat, and the steel becomes a shade of {maroon/violet}. The wielder can use the weapon to carve into space itself, creating a freestanding portal in the air. This portal acts as if created by the spell Arcane Gate. There can only ever be 2 portals present - if a 3rd is opened, the 1st closes. The charges are regained at dawn.",
+                      "Once per day, the wielder of this weapon can speak the ancient words and make a sacrifice of blood in order to unleash the weapons power. Lose 2d4 HP, and cast the spell Hunger of Hadar.",
+                      "This weapon has 1 charge. On a successful attack, the wielder can expend a charge to displace the essence of the target. The target must make a DC 18 WIS save. On a failure, the target is transported to the {Feywild/Shadowfell} plane. The charge is regained at dawn."
+                  ]
+              },
+              "enchantment": {
+                  "minor": [
+                      "This weapon has {2/3} charges. While holding this weapon, the wielder can expend a charge to cast Vicious Mockery as though they were 1st level. The charges are regained at dawn."
+                  ],
+                  "lesser": [
+                      "This weapon has {2/3} charges. While holding this weapon, the wielder can expend a charge to cast Vicious Mockery as though they were 5th level. The charges are regained at dawn.",
+                      "On a successful attack, target must make a DC 14 WIS save. On a failure, their mind is clouded with terrifying visions. They have disadvantage on all attack rolls for {2/3}d4 rounds.",
+                      "On a successful attack, target must make a DC 14 WIS save. On a failure, their thoughts are swamped with intense emotions of fear, panic and sorrow. They are unable to make hostile or aggressive actions for 1d6 rounds."
+                  ],
+                  "greater": [
+                      "This weapon has {2/3} charges. While holding this weapon, the wielder can expend a charge to cast Vicious Mockery as though they were 11th level. The charges are regained at dawn.",
+                      "On a successful attack, targets must make a DC 16 WIS save. On a failure, the target becomes Paralyzed for {2/3}d4 rounds.",
+                      "This weapon has {2/3} charges. On a successful attack, the wielder can expend a charge to swamp the target’s mind with thoughts of jealousy and anger. On the target’s next turn, they must try and attack an ally, to the reasonable best of the target’s ability. The charges are regained at dawn."
+                  ],
+                  "supreme": [
+                      "This weapon has {2/3} charges. While holding this weapon, the wielder can expend a charge to cast Vicious Mockery as though they were 17th level. The charges are regained at dawn.",
+                      "This weapon has {2/3} charges. On a successful attack, the wielder can expend a charge to cast Confusion at 4th level. The spells point of origin is the target. If allies are inside the sphere, the wielder can choose to make them exempt from the effect. The charges are regained at dawn."
+                  ]
+              },
+              "evocation": {
+                  "minor": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast {Eldritch Blast/Fire Bolt/Frostbite} as though they were 1st level. The charges are regained at dawn."
+                  ],
+                  "lesser": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast {Eldritch Blast/Fire Bolt/Frostbite} as though they were 5th level. The charges are regained at dawn.",
+                      "On a successful attack, embers and flames erupt from the target at the point where the weapon made contact. Target takes an additional {2/3}d4 of Fire damage.",
+                      "Twice a day, you can thrust the weapon into the ground beneath you, sending out magical shockwaves. This has the effect of casting Thunderwave at 1st level"
+                  ],
+                  "greater": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast {Eldritch Blast/Fire Bolt/Frostbite} as though they were 11th level. The charges are regained at dawn.",
+                      "The blade of this weapon crackles with {electrical/magical/eldritch} energy. When swung in front of a group of creatures, {X::2/3/4} of the creatures are struck with bolts of energy. Each affected creature takes 3d4 Lightning damage, and becomes Paralyzed for 2 rounds."
+                  ],
+                  "supreme": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast {Eldritch Blast/Fire Bolt/Frostbite} as though they were 17th level. The charges are regained at dawn."
+                  ]
+              },
+              "illusion": {
+                  "minor": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Minor Illusion as though they were 1st level. The charges are regained at dawn."
+                  ],
+                  "lesser": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Minor Illusion as though they were 5th level. The charges are regained at dawn.",
+                      "On a successful attack, embers and flames erupt from the target at the point where the weapon made contact. Target takes an additional {2/3}d4 of Fire damage."
+                  ],
+                  "greater": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Minor Illusion as though they were 11th level. The charges are regained at dawn.",
+                      "On a successful attack, the target must make a DC 16 WIS save. On a failure, they see lifelike bugs and insects pouring out of the wound inflicted by the attack, and become frightened for 1d8 turns. The source of the fear is the weapon itself."
+                  ],
+                  "supreme": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Minor Illusion as though they were 17th level. The charges are regained at dawn.",
+                      "Once a day, the wielder can lightly touch another creature with this weapon. That target creature, along with all of its grear, becomes invisible for {15/30/40/60} minutes."
+                  ]
+              },
+              "necromancy": {
+                  "minor": [
+                      "On a successful attack, target must make a DC 12 CON save or take an extra {1d2/1d3} of {Necrotic/Chill} damage. This effect occurs once per day.",
+                      "On a successful attack, target must make a DC 12 CON save. On a failure, the target's youth is sapped, stiffening their joints and aging their skin. It has has disadvantage on all DEX saves for 1 minute."
+                  ],
+                  "lesser": [
+                      "On a successful attack, target must make a DC 14 CON save or take an extra {1d6/2d4} {Necrotic/Chill} damage. This effect occurs once per day.",
+                      "On a successful attack, target must make a DC {14/15/16} CON save or gain 1 point of Exhaustion.",
+                      "On a successful attack, target must make a DC {14/15} CON save or lose {2/1d4} HP, and the attacker gains that much HP.",
+                      "On a successful attack, {sickly/black/dark} energy strikes all creatures of the wielders choosing in a {20/25/30}ft radius. All targets must make a DC {14/15} CON saving throw. Any failures become Deaf for {2d4} turns."
+                  ],
+                  "greater": [
+                      "On a successful attack, target must make a DC 16 CON save or take an extra {2/3}d{6/8} {Necrotic/Chill} damage. This effect occurs once per day.",
+                      "On a successful attack, {sickly/black/dark} energy strikes all creatures of the wielders choosing in a {15/20/25}ft radius. All targets must make a DC {15/16} CON saving throw. Any failures become Blind for {2d4} turns.",
+                      "On a successful attack, {sickly/black/dark} energy {strikes/slams into/seeks out/rushes into} all targets of the wielders choosing in a {20/25/30}ft radius. All targets must make a DC 16 CON saving throw. Any failures take {2/3}d4 Necrotic damage.",
+                      "While wielding this weapon, the holder can cast Inflict Wounds at base level {2/3} times/day.",
+                      "This weapon has {3/4} charges. On a successful attack, the wielder can expend a charge to sap the life energy from the target to regain health. The number of Hit Points restored is equal to the damage inflicted by the weapon. The charges are regained at dawn."
+                  ],
+                  "supreme": [
+                      "On a successful attack, target must make a DC 18 CON save or take an extra {3/4}d{10/12} {Necrotic/Chill} damage. This effect occurs once per day.",
+                      "If a creature is killed with this weapon, they are raised as undead in 1d10 turns. The raised creature acts as if raised by the Create Undead spell cast at base level",
+                      "This weapon has 1 charge. On a successful attack, the wielder can expend a charge to send oily black roots digging through the targets body into their skull. The target must make a DC 14 CON save. On a failure, they become permanently {Blind/Deaf}.",
+                      "While wielding this weapon, the holder can cast {Blight/Contagion} at base level {once/twice} per day.",
+                      "Whenever a creature looks at this weapon, they must make a DC {14/15/16} WIS save. On a failure, the creature becomes Frightened for 2d4 turns. The creature re-try the saving throw after these turns. A success renders the creature immune to the effect for 24 hours"
+                  ]
+              },
+              "transmutation": {
+                  "minor": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Thorn Whip as though they were 1st level. The charges are regained at dawn."
+                  ],
+                  "lesser": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Thorn Whip as though they were 5th level. The charges are regained at dawn."
+                  ],
+                  "greater": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Thorn Whip as though they were 11th level. The charges are regained at dawn.",
+                      "This weapon has {2/3} charges. On a successful attack, the wielder can expend a charge to trigger the effect. The target must make a DC 15 {WIS/CON} save or be transmuted into {wood/stone/rock/clay} for {1/2/3}d4 minutes. While transmuted, the target has the Petrified condition. The charges are regained at dawn."
+                  ],
+                  "supreme": [
+                      "This weapon has {2/3} charges. The wielder can expend a charge to cast Thorn Whip as though they were 17th level. The charges are regained at dawn.",
+                      "On a successful attack, the target must make a DC 18 WIS check. On a failure, the creature feels stinging, ice cold energy coursing through their veins. The creature becomes Petrified",
+                      "This weapon has 2 charges. While holding this weapon, the wielder can expend a charge to cast the spell Gaseous Form on themselves or an ally. The charges are regained at dawn."
+                  ]
+              }
+          },
+          "tagline_owned_words": ["Bane", "Curse", "Luck", "Hope", "Wrath", "Pain"],
+          "tagline_templates": ["{$owner_first_name_possessive} {$tagline_owned_word}"]
+      }
+      
+      },{}],11:[function(require,module,exports){
+      "use strict";
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var names_json_1 = __importDefault(require("./names.json"));
+      /**
+       * generate a name for a race and gender.
+       *
+       * @param {string} props.race generate with a specific race
+       * @param {string} props.gender generate with a specific gender
+       */
+      var generateName = function (race, gender) {
+          var raceTemplates = names_json_1.default[race].templates;
+          if (!raceTemplates) {
+              throw new Error("could not find race templates for " + race);
+          }
+          var template = Utils.pick(raceTemplates);
+          switch (race) {
+              case "dragonborn":
+              case "dwarf":
+              case "elf":
+              case "gnome":
+              case "halfling":
+              case "human":
+                  return Utils.parseTemplate(template, {
+                      first: Utils.pick(names_json_1.default[race][gender]),
+                      last: Utils.pick(names_json_1.default[race].last),
+                  });
+              case "halfOrc":
+                  return Utils.parseTemplate(template, {
+                      humanFirst: Utils.pick(names_json_1.default.human[gender]),
+                      humanLast: Utils.pick(names_json_1.default.human.last),
+                      orcFirst: Utils.pick(names_json_1.default.halfOrc[gender]),
+                  });
+              case "halfElf":
+                  return Utils.parseTemplate(template, {
+                      humanFirst: Utils.pick(names_json_1.default.human[gender]),
+                      humanLast: Utils.pick(names_json_1.default.human.last),
+                      elfFirst: Utils.pick(names_json_1.default.elf[gender]),
+                      elfLast: Utils.pick(names_json_1.default.elf.last),
+                  });
+              case "tiefling":
+                  return Utils.parseTemplate(template, {
+                      humanFirst: Utils.pick(names_json_1.default.human[gender]),
+                      humanLast: Utils.pick(names_json_1.default.human.last),
+                      tieflingFirst: Utils.pick(names_json_1.default.tiefling[gender]),
+                  });
+              case "aelfir":
+                  var _a = Utils.pickMany(names_json_1.default.aelfir.adjective, 2), adjective = _a[0], adjective2 = _a[1];
+                  var _b = Utils.pickMany(names_json_1.default.aelfir.thing, 2), thing = _b[0], thing2 = _b[1];
+                  var _c = Utils.pickMany(names_json_1.default.aelfir.passive_emotion, 2), passive_emotion = _c[0], passive_emotion2 = _c[1];
+                  return Utils.parseTemplate(template, {
+                      verb_ing: Utils.parseTemplate(Utils.pick(names_json_1.default.aelfir.verb_ing)),
+                      verb_present: Utils.parseTemplate(Utils.pick(names_json_1.default.aelfir.verb_present)),
+                      adverb: Utils.parseTemplate(Utils.pick(names_json_1.default.aelfir.adverb)),
+                      adjective: Utils.parseTemplate(adjective),
+                      adjective2: Utils.parseTemplate(adjective2),
+                      preposition: Utils.parseTemplate(Utils.pick(names_json_1.default.aelfir.preposition)),
+                      preposition_spatial: Utils.parseTemplate(Utils.pick(names_json_1.default.aelfir.preposition_spatial)),
+                      passive_emotion: Utils.parseTemplate(passive_emotion),
+                      passive_emotion2: Utils.parseTemplate(passive_emotion2),
+                      thing: Utils.parseTemplate(thing),
+                      thing2: Utils.parseTemplate(thing2),
+                  });
+          }
+      };
+      exports.generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var race = props.race, gender = props.gender, seed = props.seed;
+          // use the given seed, or one set by withSeed, or generate one
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          // use withSeed to ensure seeded output for all picks
+          return Utils.withSeed(seed, function () {
+              race = race ? race : Utils.pick(Object.keys(names_json_1.default));
+              gender = gender ? gender : Utils.randomGender();
+              var name = generateName(race, gender);
+              var _a = name.split(" "), firstName = _a[0], lastName = _a[1];
+              return {
+                  seed: seed,
+                  name: name,
+                  race: race,
+                  gender: gender,
+                  firstName: firstName,
+                  lastName: lastName,
+                  formattedData: {
+                      name: name,
+                      race: Utils.formatRace(race),
+                      gender: Utils.titleCase(gender),
+                      firstName: firstName ? Utils.titleCase(firstName) : undefined,
+                      lastName: lastName ? Utils.titleCase(lastName) : undefined,
+                  },
+              };
+          });
+      };
+      var functions = {
+          generate: exports.generate,
+      };
+      // setup a function for each race
+      Object.keys(names_json_1.default).forEach(function (race) {
+          functions[race] = function (props) {
+              props.race = race;
+              return exports.generate(props);
+          };
+      });
+      exports.default = functions;
+      
+      },{"../utils":22,"./names.json":12}],12:[function(require,module,exports){
+      module.exports={
+          "dragonborn": {
+              "male": [
+                  "Arjhan",
+                  "Balasar",
+                  "Bharash",
+                  "Donaar",
+                  "Ghesh",
+                  "Heskan",
+                  "Kriv",
+                  "Medrash",
+                  "Mehen",
+                  "Nadarr",
+                  "Pandjed",
+                  "Patrin",
+                  "Rhogar",
+                  "Shamash",
+                  "Shedinn",
+                  "Tarhun",
+                  "Torinn"
+              ],
+              "female": [
+                  "Akra",
+                  "Biri",
+                  "Daar",
+                  "Farideh",
+                  "Harann",
+                  "Havilar",
+                  "Jheri",
+                  "Kava",
+                  "Korinn",
+                  "Mishann",
+                  "Nala",
+                  "Perra",
+                  "Raiann",
+                  "Sora",
+                  "Surina",
+                  "Thava",
+                  "Uadjit"
+              ],
+              "last": [
+                  "Clethtinthiallor",
+                  "Daardendrian",
+                  "Delmirev",
+                  "Drachedandion",
+                  "Fenkenkabradon",
+                  "Kepeshkmolik",
+                  "Kerrhylon",
+                  "Kimbatuul",
+                  "Linxakasendalor",
+                  "Myastan",
+                  "Nemmonis",
+                  "Norixius",
+                  "Ophinshtalajiir",
+                  "Prexijandilin",
+                  "Shestendeliath",
+                  "Turnuroth",
+                  "Verthisathurgiesh",
+                  "Yarjerit"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "dwarf": {
+              "male": [
+                  "Adrik",
+                  "Alberich",
+                  "Baern",
+                  "Barendd",
+                  "Brottor",
+                  "Bruenor",
+                  "Dain",
+                  "Darrak",
+                  "Delg",
+                  "Eberk",
+                  "Einkil",
+                  "Fargrim",
+                  "Flint",
+                  "Gardain",
+                  "Harbek",
+                  "Kildrak",
+                  "Morgran",
+                  "Orsik",
+                  "Oskar",
+                  "Rangrim",
+                  "Rurik",
+                  "Taklinn",
+                  "Thoradin",
+                  "Thorin",
+                  "Tordek",
+                  "Traubon",
+                  "Travok",
+                  "Ulfgar",
+                  "Veit",
+                  "Vondal"
+              ],
+              "female": [
+                  "Amber",
+                  "Artin",
+                  "Audhild",
+                  "Bardryn",
+                  "Dagnal",
+                  "Diesa",
+                  "Eldeth",
+                  "Falkrunn",
+                  "Finellen",
+                  "Gunnloda",
+                  "Gurdis",
+                  "Helja",
+                  "Hlin",
+                  "Kathra",
+                  "Kristryd",
+                  "Ilde",
+                  "Liftrasa",
+                  "Mardred",
+                  "Riswynn",
+                  "Sannl",
+                  "Torbera",
+                  "Torgga",
+                  "Vistra"
+              ],
+              "last": [
+                  "Balderk",
+                  "Battlehammer",
+                  "Brawnanvil",
+                  "Dankil",
+                  "Fireforge",
+                  "Frostbeard",
+                  "Gorunn",
+                  "Holderhek",
+                  "Ironfist",
+                  "Loderr",
+                  "Lutgehr",
+                  "Rumnaheim",
+                  "Strakeln",
+                  "Torunn",
+                  "Ungart"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "elf": {
+              "male": [
+                  "Adran",
+                  "Aelar",
+                  "Aramil",
+                  "Arannis",
+                  "Aust",
+                  "Beiro",
+                  "Berrian",
+                  "Carric",
+                  "Enialis",
+                  "Erdan",
+                  "Erevan",
+                  "Galinndan",
+                  "Hadarai",
+                  "Heian",
+                  "Himo",
+                  "Immeral",
+                  "Ivellios",
+                  "Laucian",
+                  "Mindartis",
+                  "Paelias",
+                  "Peren",
+                  "Quarion",
+                  "Riardon",
+                  "Rolen",
+                  "Soveliss",
+                  "Thamior",
+                  "Tharivol",
+                  "Theren",
+                  "Varis"
+              ],
+              "female": [
+                  "Adrie",
+                  "Althaea",
+                  "Anastrianna",
+                  "Andraste",
+                  "Antinua",
+                  "Bethrynna",
+                  "Birel",
+                  "Caelynn",
+                  "Drusilia",
+                  "Enna",
+                  "Felosial",
+                  "Ielenia",
+                  "Jelenneth",
+                  "Keyleth",
+                  "Leshanna",
+                  "Lia",
+                  "Meriele",
+                  "Mialee",
+                  "Naivara",
+                  "Quelenna",
+                  "Quillathe",
+                  "Sariel",
+                  "Shanairra",
+                  "Shava",
+                  "Silaqui",
+                  "Theirastra",
+                  "Thia",
+                  "Vadania",
+                  "Valanthe",
+                  "Xanaphia"
+              ],
+              "last": [
+                  "Amakiir",
+                  "Amastacia",
+                  "Galanodel",
+                  "Holimion",
+                  "Ilphelkiir",
+                  "Liadon",
+                  "Meliamne",
+                  "Naïlo",
+                  "Siannodel",
+                  "Xiloscient"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "gnome": {
+              "male": [
+                  "Alston",
+                  "Alvyn",
+                  "Boddynock",
+                  "Brocc",
+                  "Burgell",
+                  "Dimble",
+                  "Eldon",
+                  "Erky",
+                  "Fonkin",
+                  "Frug",
+                  "Gerbo",
+                  "Gimble",
+                  "Glim",
+                  "Jebeddo",
+                  "Kellen",
+                  "Namfoodle",
+                  "Orryn",
+                  "Roondar",
+                  "Seebo",
+                  "Sindri",
+                  "Warryn",
+                  "Wrenn",
+                  "Zook"
+              ],
+              "female": [
+                  "Bimpnottin",
+                  "Breena",
+                  "Caramip",
+                  "Carlin",
+                  "Donella",
+                  "Duvamil",
+                  "Ella",
+                  "Ellyjobell",
+                  "Ellywick",
+                  "Lilli",
+                  "Loopmottin",
+                  "Lorilla",
+                  "Mardnab",
+                  "Nissa",
+                  "Nyx",
+                  "Oda",
+                  "Orla",
+                  "Roywyn",
+                  "Shamil",
+                  "Tana",
+                  "Waywocket",
+                  "Zanna"
+              ],
+              "last": [
+                  "Beren",
+                  "Daergel",
+                  "Folkor",
+                  "Garrick",
+                  "Nackle",
+                  "Nikkle",
+                  "Murnig",
+                  "Ningel",
+                  "Raulnor",
+                  "Scheppen",
+                  "Timbers",
+                  "Turen"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "halfElf": {
+              "templates": [
+                  "{$humanFirst} {$humanLast}",
+                  "{$elfFirst} {$elfLast}",
+                  "{$humanFirst} {$elfLast}",
+                  "{$elfFirst} {$humanLast}"
+              ]
+          },
+          "halfOrc": {
+              "male": [
+                  "Dench",
+                  "Feng",
+                  "Gell",
+                  "Henk",
+                  "Holg",
+                  "Imsh",
+                  "Keth",
+                  "Krusk",
+                  "Mhurren",
+                  "Ront",
+                  "Shump",
+                  "Thokk"
+              ],
+              "female": [
+                  "Baggi",
+                  "Emen",
+                  "Engong",
+                  "Kansif",
+                  "Myev",
+                  "Neega",
+                  "Ovak",
+                  "Ownka",
+                  "Shautha",
+                  "Sutha",
+                  "Vola",
+                  "Volen",
+                  "Yevelda"
+              ],
+              "templates": [
+                  "{$humanFirst} {$humanLast}",
+                  "{$humanFirst}",
+                  "{$orcFirst} {$humanLast}",
+                  "{$orcFirst}"
+              ]
+          },
+          "halfling": {
+              "male": [
+                  "Alton",
+                  "Ander",
+                  "Cade",
+                  "Corrin",
+                  "Eldon",
+                  "Errich",
+                  "Finnan",
+                  "Garret",
+                  "Lindal",
+                  "Lyle",
+                  "Merric",
+                  "Milo",
+                  "Osborn",
+                  "Perrin",
+                  "Reed",
+                  "Roscoe",
+                  "Wellby"
+              ],
+              "female": [
+                  "Andry",
+                  "Bree",
+                  "Callie",
+                  "Cora",
+                  "Euphemia",
+                  "Jillian",
+                  "Kithri",
+                  "Lavinia",
+                  "Lidda",
+                  "Merla",
+                  "Nedda",
+                  "Paela",
+                  "Portia",
+                  "Seraphina",
+                  "Shaena",
+                  "Trym",
+                  "Vani",
+                  "Verna"
+              ],
+              "last": [
+                  "Brushgather",
+                  "Goodbarrel",
+                  "Greenbottle",
+                  "High-hill",
+                  "Hilltopple",
+                  "Leagallow",
+                  "Tealeaf",
+                  "Thorngage",
+                  "Tosscobble",
+                  "Underbough"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "human": {
+              "male": [
+                  "Aseir",
+                  "Bardeid",
+                  "Haseid",
+                  "Khemed",
+                  "Mehmen",
+                  "Sudeiman",
+                  "Zasheir",
+                  "Darvin",
+                  "Dorn",
+                  "Evendur",
+                  "Gorstag",
+                  "Grim",
+                  "Helm",
+                  "Malark",
+                  "Morn",
+                  "Randal",
+                  "Stedd",
+                  "Bor",
+                  "Fodel",
+                  "Glar",
+                  "Grigor",
+                  "Igan",
+                  "Ivor",
+                  "Kosef",
+                  "Mival",
+                  "Orel",
+                  "Pavel",
+                  "Sergor",
+                  "Blath",
+                  "Bran",
+                  "Frath",
+                  "Geth",
+                  "Lander",
+                  "Luth",
+                  "Malcer",
+                  "Stor",
+                  "Taman",
+                  "Urth",
+                  "Aoth",
+                  "Bareris",
+                  "Ehput-Ki",
+                  "Kethoth",
+                  "Mumed",
+                  "Ramas",
+                  "So-Kehur",
+                  "Thazar-De",
+                  "Urhur",
+                  "Borivik",
+                  "Faurgar",
+                  "Jandar",
+                  "Kanithar",
+                  "Madislak",
+                  "Ralmevik",
+                  "Shaumar",
+                  "Vladislak",
+                  "An",
+                  "Chen",
+                  "Chi",
+                  "Fai",
+                  "Jiang",
+                  "Jun",
+                  "Lian",
+                  "Long",
+                  "Meng",
+                  "On",
+                  "Shan",
+                  "Shui",
+                  "Wen",
+                  "Anton",
+                  "Diero",
+                  "Marcon",
+                  "Pieron",
+                  "Rimardo",
+                  "Romero",
+                  "Salazar",
+                  "Umbero"
+              ],
+              "female": [
+                  "Atala",
+                  "Ceidil",
+                  "Hama",
+                  "Jasmal",
+                  "Meilil",
+                  "Seipora",
+                  "Yasheira",
+                  "Zasheida",
+                  "Arveene",
+                  "Esvele",
+                  "Jhessail",
+                  "Kerri",
+                  "Lureene",
+                  "Miri",
+                  "Rowan",
+                  "Shandri",
+                  "Tessele",
+                  "Alethra",
+                  "Kara",
+                  "Katernin",
+                  "Mara",
+                  "Natali",
+                  "Olma",
+                  "Tana",
+                  "Zora",
+                  "Ander",
+                  "Amafrey",
+                  "Betha",
+                  "Cefrey",
+                  "Kethra",
+                  "Mara",
+                  "Olga",
+                  "Silifrey",
+                  "Westra",
+                  "Arizima",
+                  "Chathi",
+                  "Nephis",
+                  "Nulara",
+                  "Murithi",
+                  "Sefris",
+                  "Thola",
+                  "Umara",
+                  "Zolis",
+                  "Fyevarra",
+                  "Hulmarra",
+                  "Immith",
+                  "Imzel",
+                  "Navarra",
+                  "Shevarra",
+                  "Tammith",
+                  "Yuldra",
+                  "Bai",
+                  "Chao",
+                  "Jia",
+                  "Lei",
+                  "Mei",
+                  "Qiao",
+                  "Shui",
+                  "Tai",
+                  "Balama",
+                  "Dona",
+                  "Faila",
+                  "Jalana",
+                  "Luisa",
+                  "Marta",
+                  "Quara",
+                  "Selise",
+                  "Vonda"
+              ],
+              "last": [
+                  "Basha",
+                  "Dumein",
+                  "Jassan",
+                  "Khalid",
+                  "Mostana",
+                  "Pashar",
+                  "Rein",
+                  "Amblecrown",
+                  "Buckman",
+                  "Dundragon",
+                  "Evenwood",
+                  "Greycastle",
+                  "Tallstag",
+                  "Bersk",
+                  "Chernin",
+                  "Dotsk",
+                  "Kulenov",
+                  "Marsk",
+                  "Nemetsk",
+                  "Shemov",
+                  "Starag",
+                  "Brightwood",
+                  "Helder",
+                  "Hornraven",
+                  "Lackman",
+                  "Stormwind",
+                  "Windrivver",
+                  "Ankhalab",
+                  "Anskuld",
+                  "Fezim",
+                  "Hahpet",
+                  "Nathandem",
+                  "Sepret",
+                  "Uuthrakt",
+                  "Chergoba",
+                  "Dyernina",
+                  "Iltazyara",
+                  "Murnyethara",
+                  "Stayanoga",
+                  "Ulmokina",
+                  "Chien",
+                  "Huang",
+                  "Kao",
+                  "Kung",
+                  "Lao",
+                  "Ling",
+                  "Mei",
+                  "Pin",
+                  "Shin",
+                  "Sum",
+                  "Tan",
+                  "Wan",
+                  "Agosto",
+                  "Astorio",
+                  "Calabra",
+                  "Domine",
+                  "Falone",
+                  "Marivaldi",
+                  "Pisacar",
+                  "Ramondo"
+              ],
+              "templates": ["{$first} {$last}"]
+          },
+          "tiefling": {
+              "male": [
+                  "Akmenos",
+                  "Amnon",
+                  "Barakas",
+                  "Damakos",
+                  "Ekemon",
+                  "Lados",
+                  "Kairon",
+                  "Leucis",
+                  "Melech",
+                  "Mordai",
+                  "Morthos",
+                  "Pelaios",
+                  "Skamos",
+                  "Therai",
+                  "Thycius",
+                  "Urmenos",
+                  "Damrakas",
+                  "Erthor",
+                  "Kylyre",
+                  "Ralreus",
+                  "Malerias",
+                  "Rolthor",
+                  "Arxikas",
+                  "Kyichar",
+                  "Urcis",
+                  "Ekdos",
+                  "Zarvir",
+                  "Malevenom",
+                  "Kaus",
+                  "Horrut"
+              ],
+              "female": [
+                  "Aranxus",
+                  "Zhermos",
+                  "Amrius",
+                  "Valros",
+                  "Zerdos",
+                  "Casira",
+                  "Zarcis",
+                  "Kosakas",
+                  "Dharxus",
+                  "Guelyre",
+                  "Arkvir",
+                  "Aririssa",
+                  "Seiriseis",
+                  "Iniza",
+                  "Natlyvia",
+                  "Orimaia",
+                  "Aragrea",
+                  "Veltari",
+                  "Afuphis",
+                  "Yamaia",
+                  "Dimcria",
+                  "Zegoria",
+                  "Yalies",
+                  "Naxori",
+                  "Ariaphi"
+              ],
+              "templates": [
+                  "{$humanFirst} {$humanLast}",
+                  "{$humanFirst}",
+                  "{$tieflingFirst} {$humanLast}",
+                  "{$tieflingFirst}"
+              ]
+          },
+          "aelfir": {
+              "verb_ing": [
+                  "Singing",
+                  "Dancing",
+                  "Creaking",
+                  "Leaping",
+                  "Crying",
+                  "Choking",
+                  "Quivering",
+                  "Whispering",
+                  "Smiling",
+                  "Glancing",
+                  "Stealing",
+                  "Thirsting",
+                  "Hungering",
+                  "Screaming",
+                  "Pleading",
+                  "Challenging",
+                  "Begging",
+                  "Wanting",
+                  "Calling",
+                  "Beckoning",
+                  "Helping",
+                  "Believing",
+                  "Growing",
+                  "Offering",
+                  "Leading",
+                  "Reaching"
+              ],
+              "verb_present": [
+                  "Sing",
+                  "Dance",
+                  "Creak",
+                  "Leap",
+                  "Cry",
+                  "Choke",
+                  "Quiver",
+                  "Whisper",
+                  "Smile",
+                  "Glance",
+                  "Steal",
+                  "Thirst",
+                  "Hunger",
+                  "Scream",
+                  "Plead",
+                  "Challenge",
+                  "Beg",
+                  "Want",
+                  "Call",
+                  "Beckon",
+                  "Help",
+                  "Believe",
+                  "Grow",
+                  "Offer",
+                  "Reach"
+              ],
+              "adverb": [
+                  "Gracefully",
+                  "Youthfully",
+                  "Quietly",
+                  "Plainly",
+                  "Deliberately",
+                  "Forcefully",
+                  "Accidentally",
+                  "Begrudgingly",
+                  "Majestically",
+                  "Abruptly",
+                  "Beautifully",
+                  "Delicately",
+                  "Delightfully",
+                  "Firmly",
+                  "Lightly",
+                  "Truthfully",
+                  "Quickly",
+                  "Wearily",
+                  "Willfully"
+              ],
+              "adjective": [
+                  "{Gold/Silver/Silver-Touched/Ruby/Gem-Wrought/Emerald}",
+                  "{Broken/Torn/Ruined}",
+                  "{Ornate/Delicate/Fragile/Tender}",
+                  "Rhetorical",
+                  "Pompous",
+                  "{Plain/Dull}",
+                  "{Stark/Bold}",
+                  "{Floral/Flowered}",
+                  "{Shallow/Superficial}",
+                  "{Frozen/Cold}",
+                  "{Bright/Brilliant/Vivid/Iridescent}"
+              ],
+              "preposition": [
+                  "To",
+                  "With",
+                  "From",
+                  "On"
+              ],
+              "preposition_spatial": [
+                  "Beside",
+                  "Beneath",
+                  "Amidst",
+                  "Between",
+                  "Toward",
+                  "Within",
+                  "Beyond",
+                  "Amongst"
+              ],
+              "thing": [
+                  "{Heart/Mind/Soul/Hand}",
+                  "{Star/Starlight}",
+                  "River",
+                  "Scar",
+                  "{Mist/Rain}",
+                  "{Sun/Moon/Earth}",
+                  "{Sunset/Sunrise}",
+                  "Moonlight",
+                  "{Crystal/Diamond/Sapphire}",
+                  "{Flame/Fire/Ember}",
+                  "{Orchid/Dandelion/Sunflower/Rose/Tulip}"
+              ],
+              "passive_emotion": [
+                  "Arrogance",
+                  "Hatred",
+                  "Delight",
+                  "Cruelty",
+                  "Joy",
+                  "Lust",
+                  "Respect",
+                  "Love",
+                  "Hope",
+                  "Worry",
+                  "Anger",
+                  "Sorrow",
+                  "Ignorance",
+                  "Pride"
+              ],
+              "templates": [
+                  "{$verb_ing}-{$preposition}-{$thing}s",
+                  "{$thing}-{$preposition}-{$thing2}",
+                  "{$adverb}-{$verb_ing}-{$thing}",
+                  "{$adverb}-{$verb_ing}-{$thing}s",
+                  "{$adjective}-{$thing}-{$verb_ing}",
+                  "{$passive_emotion}-{$preposition}-{$thing}s",
+                  "{$adjective}-{$passive_emotion}-{$verb_ing}",
+                  "{$adjective}-{$adjective2}-{$passive_emotion}",
+                  "{$adjective}-{$thing}-{$verb_ing}",
+                  "{$thing}-{$verb_present}-{$verb_ing}",
+                  "{$thing}-{$verb_present}s-{$adverb}",
+                  "{$adjective}-{$thing}-{$verb_ing}",
+                  "{$thing2}-{$thing}-{$verb_ing}",
+                  "{$thing}s-{$verb_present}-{$adverb}",
+                  "{$thing}-{$verb_present}s-{$adverb}",
+                  "{$thing}-{$verb_present}s-{$preposition_spatial}",
+                  "{$preposition}-{$verb_ing}-{$thing}s",
+                  "{$preposition_spatial}-{$verb_ing}-{$thing}s"
+              ]
+          }
+      }
+      
+      },{}],13:[function(require,module,exports){
+      "use strict";
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var names_1 = __importDefault(require("../names"));
+      var names_json_1 = __importDefault(require("../names/names.json"));
+      var npcs_json_1 = __importDefault(require("./npcs.json"));
+      var RelationshipKeyWords = [
+          "mother",
+          "father",
+          "son",
+          "daughter",
+          "brother",
+          "sister"
+      ];
+      var generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var seed = props.seed, race = props.race, gender = props.gender, _a = props.shouldGenerateRelations, shouldGenerateRelations = _a === void 0 ? true : _a;
+          // use the given seed, or one set by withSeed, or generate one
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          return Utils.withSeed(seed, function () {
+              race = race ? race : Utils.pick(Object.keys(names_json_1.default));
+              gender = gender ? gender : Utils.randomGender();
+              // generate a name
+              var nameObject = names_1.default.generate({ race: race, gender: gender });
+              // get 2 traits and 1 desire
+              var traits = Utils.pickMany(npcs_json_1.default.traits, 2).map(Utils.parseTemplate);
+              var desires = Utils.pickMany(npcs_json_1.default.desires, 1).map(Utils.parseTemplate);
+              // if we should generate relations, generate them
+              var relations = [];
+              if (shouldGenerateRelations) {
+                  relations = generateRelationships({
+                      originalNpcNameObject: nameObject,
+                      race: race,
+                      desires: desires,
+                      seed: seed
+                  });
+              }
+              // build the whole together and return it
+              return {
+                  seed: seed,
+                  nameObject: nameObject,
+                  gender: gender,
+                  race: race,
+                  traits: traits,
+                  desires: desires,
+                  formattedData: {
+                      name: nameObject.name,
+                      firstName: nameObject.firstName,
+                      lastName: nameObject.lastName,
+                      gender: Utils.titleCase(gender),
+                      race: Utils.formatRace(race),
+                      traits: traits,
+                      desires: desires,
+                      relations: relations
+                  },
+                  relations: relations
+              };
+          });
+      };
+      var generateRelationships = function (_a) {
+          var originalNpcNameObject = _a.originalNpcNameObject, race = _a.race, desires = _a.desires, seed = _a.seed;
+          var relationTitles = getRelationTitlesFromDesires(desires);
+          return relationTitles.map(function (relationTitle) {
+              switch (relationTitle) {
+                  case "father":
+                  case "mother":
+                  case "brother":
+                  case "sister":
+                  case "son":
+                  case "daughter":
+                      return {
+                          relationTitle: relationTitle,
+                          npc: generateFamilyMember({
+                              originalNpcNameObject: originalNpcNameObject,
+                              race: race,
+                              relationTitle: relationTitle,
+                              seed: relationTitle + "-" + seed
+                          })
+                      };
+              }
+          });
+      };
+      var getRelationTitlesFromDesires = function (desires) {
+          var concatonatedDesires = desires.join(":");
+          return RelationshipKeyWords.filter(function (relationKeyword) {
+              return concatonatedDesires.includes(" " + relationKeyword);
+          });
+      };
+      var generateFamilyMember = function (_a) {
+          var originalNpcNameObject = _a.originalNpcNameObject, race = _a.race, relationTitle = _a.relationTitle, seed = _a.seed;
+          var gender = null;
+          switch (relationTitle) {
+              case "father":
+              case "brother":
+              case "son":
+                  gender = "male";
+                  break;
+              case "mother":
+              case "sister":
+              case "daughter":
+                  gender = "female";
+                  break;
+          }
+          var generatedRelation = generate({
+              race: race,
+              gender: gender,
+              shouldGenerateRelations: false,
+              seed: seed
+          });
+          // if both the original NPC and the generated NPC have a surname, set the generated NPC's
+          // surname to the original NPCs surname
+          if (originalNpcNameObject.formattedData.lastName != null &&
+              generatedRelation.formattedData.lastName != null) {
+              // both have a surname - normalize it
+              generatedRelation.nameObject.name = generatedRelation.nameObject.name.replace(generatedRelation.formattedData.lastName, originalNpcNameObject.formattedData.lastName);
+              generatedRelation.nameObject.lastName = originalNpcNameObject.lastName;
+              generatedRelation.formattedData.name = generatedRelation.formattedData.name.replace(generatedRelation.formattedData.lastName, originalNpcNameObject.formattedData.lastName);
+              generatedRelation.formattedData.lastName = originalNpcNameObject.lastName;
+          }
+          return generatedRelation;
+      };
+      var generateTrait = function () {
+          return Utils.parseTemplate(Utils.pick(npcs_json_1.default.traits));
+      };
+      var generateDesire = function () {
+          return Utils.parseTemplate(Utils.pick(npcs_json_1.default.desires));
+      };
+      var functions = {
+          generate: generate,
+          trait: generateTrait,
+          desire: generateDesire
+      };
+      exports.default = functions;
+      
+      },{"../names":11,"../names/names.json":12,"../utils":22,"./npcs.json":14}],14:[function(require,module,exports){
+      module.exports={
+          "traits": [
+              "My eyes are very piercing, and bright {blue/green}.",
+              "My voice is {raspy/croaky/harsh} from years of {smoking/drinking}.",
+              "My hands are unusually {small/large}.",
+              "My feet are very {small/big}.",
+              "My eyebrows are very {bushy/thin/wide/short}.",
+              "My hair is an unusual colour for my race.",
+              "My {left/right} leg is false. I lost it {in battle/hunting the undead/fighting an evil mage/in an accident}.",
+              "My clothes are usually {very scruffy/very well kept}.",
+              "My sense of balance is terrible - I'm always {tripping over/bumping into things/falling over}.",
+              "My sense of {smell/taste/hearing/sight} is {strangely terrible/uncannily brilliant}.",
+              "My eyes are an unusual colour for my race.",
+              "My nose is very {wide/narrow}.",
+              "I lost my {left/right} eye {protecting my family/in a bar brawl/hunting a great beast}.",
+              "I have an unusually {big/small} nose.",
+              "I have {thick, shaggy/soft, full} hair.",
+              "I am unusually {tall/short} for my race.",
+              "I am very {slender/stout}.",
+              "I have a very {loud/quiet} voice.",
+              "I have a {bad/mild} limp in my {left/right} leg from years serving {in the military/as a guard for nobility}.",
+              "I have lots of freckles.",
+              "I have a nervous twitch in my {legs/hands}.",
+              "I talk too much when I get nervous.",
+              "I am very {quick/slow} to anger.",
+              "I am prone to illness, and always seem to have a {cough/cold/sickness}.",
+              "I'm very clumsy.",
+              "I am germaphobic.",
+              "I am meticulous and precise in all respects.",
+              "I am deaf in my {left/right} ear.",
+              "I get flashes of pain in my {left arm/right arm/left shoulder/right shoulder} from an old {dagger/arrow/sword} wound there.",
+              "I have no sense of humour.",
+              "I {never/always} remember a face.",
+              "I {never/always} remember a name.",
+              "I am scarred on my {chest/back} from an attempt on my life when I was a child.",
+              "I have an unusually {deep/high} voice.",
+              "I get nervous around members of the opposite sex.",
+              "I am known to complain {often/all the time/constantly}.",
+              "I am known for my {total lack of/lax sense of/high standards of/over-the-top} personal grooming and hygiene.",
+              "I am noticeably {skinny/overweight}.",
+              "I am confident and outgoing, thanks to my {natural good looks/natural self-confidence/ability to speak well to others}.",
+              "I am noticeably weary of strangers, since {the attack on my friend/the death of a loved one/strong religious beliefs/hidden hatred of other races}.",
+              "I have a small tattoo on my {neck/back/shoulder/forearm/knee} relating to {the deity I worship/a friend I lost/a family member I lost/my past I don't want to forget}.",
+              "I have a scar on my {left hand/right hand/left leg/right leg/stomach} from {when I was a reckless child/an attempted mugging/a bet gone wrong/an accident at my profession}.",
+              "I am deathly afraid of {spiders/snakes/insects/worms}.",
+              "I get {too cold/too hot} very easily.",
+              "I {X::love/hate} {confrontation/competition}, and {X::will often provoke people for fun/will do almost anything to get out of a fight or argument}.",
+              "I have a crooked nose. It was broken when {I was a child, getting into fights/I was attacked in the street/I had an accident}.",
+              "I am {slightly/very/extremely} unfit, and am often {out of breath/struggling with muscle cramp/dizzy and lightheaded}.",
+              "I am overly {stern/strict/hard on people}.",
+              "I am {very/extremely/somewhat/really} excitable, and often get myself in trouble with my {relentless/boundless/endless} enthusiasm.",
+              "I slouch {when I walk/when I sit/at all times}.",
+              "I crack my knuckles {all the time/when I'm nervous}.",
+              "I have a {mild/slight/bad/severe} lisp.",
+              "I am {very/extremely} impatient.",
+              "I {crack my knuckles/click my tongue/fidget/itch my face} when I'm nervous.",
+              "I am blind in my {right/left} eye.",
+              "I lost my {right/left} {arm/leg} in an accident.",
+              "I get bored and distracted very easily.",
+              "I have a very short temper.",
+              "I am very bossy."
+          ],
+          "desires": [
+              "I want revenge against my {X::brother/sister} for murdering our {mother/father} for {X::his/her} own financial gain.",
+              "All I desire is a home to live in and a family to care for.",
+              "I want justice for the crimes committed against my {clan/tribe/family/friends}.",
+              "I want clear my name of false wrongdoings - I didn't {murder the noble/steal the treasure/attack the guards/attack my friend}!",
+              "All I want is enough money to pay off my debts.",
+              "I want to prove myself, and escape the shadow of my {brother/sister/brothers/sisters/siblings}.",
+              "I want to prove myself in combat, so I'm going to {win a tournament/beat the local champion/join an adventuring party}.",
+              "I want to go on adventures, because {it's what my father did/it's what my mother did/I'm bored of my mundane profession}.",
+              "I want to study magic and become a grand wizard.",
+              "I want to find an ancient {sword/shield/suit of armour/gem/cloak/ring} that I was told of as a child.",
+              "I want to discover more about my ancestors.",
+              "I want to find my lost {brother/sister}.",
+              "I want to open my own {inn/blacksmiths/armoury/tavern/stable}.",
+              "I want to escape my past as a {thief/criminal/burglar/gang member}.",
+              "I want to save my friends from {slavery/prison}.",
+              "I want to prove myself to the person I love, by {winning a race/beating a rival in combat/convincing their family I am worthy}.",
+              "I want to provide for my family, but I cannot find work. Therefore, I'm planning to {rob a wealthy merchant/steal an aristocrats jewellery}.",
+              "I want to escape the bonds of my secret enslavement to a {warlock/witch/demon/Shadowfell being}.",
+              "I want to master a musical instrument.",
+              "I want to be taken more seriously by the guild of my profession...even if it means playing dirty.",
+              "I want to become a Cleric, so I can {heal the sick, like my family before me/heal my dying family member}.",
+              "I want to be free of my nagging spouse...whatever it takes.",
+              "I want to get my own back on my superior at work, who humiliates and belittles me about my {physical appearance/race/family/tribe/clan}.",
+              "I want to disappear from the law - I'm on the run for a crime I {didn't commit/did commit}.",
+              "I want to become a master of the {sword/axe/dagger} - my dream is to become a {knight/great warrior/hunter}.",
+              "I want to be free of my Warlock Patron.",
+              "I want to murder the {duke/mayor/baron} for burning down my village.",
+              "I want to travel and see the world, but I can't because {of my commitment to my family/I'm being drafted into the military/I'm scared of danger/I'm too weak}.",
+              "I want to find true love.",
+              "I want to prove to my family that I can be strong and independent.",
+              "I want to see my {brother/sister} succeed.",
+              "I want to find my {father/brother} - he left when I was a child to be a {monk/cleric/priest/missionary} and I don't know where he is.",
+              "I want to prove myself a great hunter, and claim the head of the local monster that's been {eating livestock/abducting farmers/murdering children/razing buildings}.",
+              "I want to seek mentor ship to control my latent Sorcerous powers.",
+              "I want to find my {sister/mother} - she left a letter saying she had to {\\"settle an old score\\"/\\"do one last job\\"/\\"make things right\\"} and I haven't seen her since.",
+              "I just want to run away from all of my responsibilities."
+          ]
+      }
+      
+      },{}],15:[function(require,module,exports){
+      "use strict";
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var settlements_json_1 = __importDefault(require("./settlements.json"));
+      var establishments_1 = __importDefault(require("../establishments"));
+      var settlementType = function () { return Utils.pick(Object.keys(settlements_json_1.default.types)); };
+      var _population = function (settlementType) {
+          var population = Utils.rand(settlements_json_1.default.types[settlementType].minPop, settlements_json_1.default.types[settlementType].maxPop);
+          return population.toLocaleString();
+      };
+      exports.generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var type = props.type, seed = props.seed;
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          return Utils.withSeed(seed, function () {
+              type = type ? type : settlementType();
+              return {
+                  seed: seed,
+                  type: type,
+                  population: _population(type),
+                  establishments: [
+                      establishments_1.default.generate({ seed: seed + "-1" }),
+                      establishments_1.default.generate({ seed: seed + "-2" }),
+                      establishments_1.default.generate({ seed: seed + "-3" }),
+                  ],
+              };
+          });
+      };
+      var functions = {
+          generate: exports.generate,
+      };
+      exports.default = functions;
+      
+      },{"../establishments":3,"../utils":22,"./settlements.json":16}],16:[function(require,module,exports){
+      module.exports={
+          "types": {
+              "thorp": {
+                  "minPop": 5,
+                  "maxPop": 20,
+                  "natural_landmark_count": "0-1",
+                  "establishments": 1
+              },
+              "hamlet": {
+                  "minPop": 20,
+                  "maxPop": 80,
+                  "natural_landmark_count": "0-1",
+                  "establishments": 1
+              },
+              "village": {
+                  "minPop": 80,
+                  "maxPop": 400,
+                  "natural_landmark_count": "0-1",
+                  "establishments": 1
+              },
+              "small_town": {
+                  "minPop": 400,
+                  "maxPop": 900,
+                  "natural_landmark_count": "0-2",
+                  "establishments": 1
+              },
+              "medium_town": {
+                  "minPop": 900,
+                  "maxPop": 2000,
+                  "natural_landmark_count": "0-2",
+                  "establishments": 1
+              },
+              "large_town": {
+                  "minPop": 2000,
+                  "maxPop": 5000,
+                  "natural_landmark_count": "0-3",
+                  "establishments": 1
+              },
+              "small_city": {
+                  "minPop": 5000,
+                  "maxPop": 10000,
+                  "natural_landmark_count": "0-4",
+                  "establishments": 1
+              },
+              "medium_city": {
+                  "minPop": 10000,
+                  "maxPop": 20000,
+                  "natural_landmark_count": "0-4",
+                  "establishments": 1
+              },
+              "large_city": {
+                  "minPop": 20000,
+                  "maxPop": 50000,
+                  "natural_landmark_count": "1-4",
+                  "establishments": 1
+              },
+              "great_city": {
+                  "minPop": 50000,
+                  "maxPop": 100000,
+                  "natural_landmark_count": "2-5",
+                  "establishments": 1
+              },
+              "metropolis": {
+                  "minPop": 100000,
+                  "maxPop": -10050,
+                  "natural_landmark_count": "3-6",
+                  "establishments": 1
+              }
+          }
+      }
+      
+      },{}],17:[function(require,module,exports){
+      "use strict";
+      var __assign = (this && this.__assign) || function () {
+          __assign = Object.assign || function(t) {
+              for (var s, i = 1, n = arguments.length; i < n; i++) {
+                  s = arguments[i];
+                  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                      t[p] = s[p];
+              }
+              return t;
+          };
+          return __assign.apply(this, arguments);
+      };
+      var __importStar = (this && this.__importStar) || function (mod) {
+          if (mod && mod.__esModule) return mod;
+          var result = {};
+          if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+          result["default"] = mod;
+          return result;
+      };
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var Utils = __importStar(require("../utils"));
+      var interfaces_1 = require("../interfaces");
+      var npc_acts_json_1 = __importDefault(require("./npc_acts.json"));
+      var pc_related_json_1 = __importDefault(require("./pc_related.json"));
+      var location_based_urban_json_1 = __importDefault(require("./location_based_urban.json"));
+      var location_based_wilderness_json_1 = __importDefault(require("./location_based_wilderness.json"));
+      var generate = function (props) {
+          if (props === void 0) { props = {}; }
+          var seed = props.seed, storyhookBank = props.storyhookBank;
+          seed = seed || Utils.FantasyContentGeneratorSeed || Utils.generateUUID();
+          storyhookBank = storyhookBank || Utils.pick(Object.values(interfaces_1.eStoryhookBanks));
+          var actualStorybank;
+          switch (storyhookBank) {
+              case interfaces_1.eStoryhookBanks.NPC_ACTS:
+                  actualStorybank = npc_acts_json_1.default;
+                  break;
+              case interfaces_1.eStoryhookBanks.PC_RELATED:
+                  actualStorybank = pc_related_json_1.default;
+                  break;
+              case interfaces_1.eStoryhookBanks.LOCATION_BASED_URBAN:
+                  actualStorybank = location_based_urban_json_1.default;
+                  break;
+              case interfaces_1.eStoryhookBanks.LOCATION_BASED_WILDERNESS:
+                  actualStorybank = location_based_wilderness_json_1.default;
+                  break;
+          }
+          return Utils.withSeed(seed, function () {
+              return {
+                  seed: seed,
+                  storyhook: Utils.parseTemplate(Utils.pick(actualStorybank)),
+                  storyhookBank: storyhookBank,
+              };
+          });
+      };
+      var npcActs = function (props) {
+          if (props === void 0) { props = {}; }
+          return generate(__assign(__assign({}, props), { storyhookBank: interfaces_1.eStoryhookBanks.NPC_ACTS }));
+      };
+      var pcRelated = function (props) {
+          if (props === void 0) { props = {}; }
+          return generate(__assign(__assign({}, props), { storyhookBank: interfaces_1.eStoryhookBanks.PC_RELATED }));
+      };
+      var locationBasedUrban = function (props) {
+          if (props === void 0) { props = {}; }
+          return generate(__assign(__assign({}, props), { storyhookBank: interfaces_1.eStoryhookBanks.LOCATION_BASED_URBAN }));
+      };
+      var locationBasedWilderness = function (props) {
+          if (props === void 0) { props = {}; }
+          return generate(__assign(__assign({}, props), { storyhookBank: interfaces_1.eStoryhookBanks.LOCATION_BASED_WILDERNESS }));
+      };
+      var functions = {
+          generate: generate,
+          npcActs: npcActs,
+          pcRelated: pcRelated,
+          locationBasedUrban: locationBasedUrban,
+          locationBasedWilderness: locationBasedWilderness,
+      };
+      exports.default = functions;
+      
+      },{"../interfaces":6,"../utils":22,"./location_based_urban.json":18,"./location_based_wilderness.json":19,"./npc_acts.json":20,"./pc_related.json":21}],18:[function(require,module,exports){
+      module.exports=[
+          "A PC notices a shadowy figure",
+          "A {brawl/fight} breaks out in a nearby tavern",
+          "A {hostile/agressive/mysterious} faction the PCs know have developed a prescence in this town"
+      ]
+      
+      },{}],19:[function(require,module,exports){
+      module.exports=["A PC notices a a huge plume of smoke to the {North/South/East/West}"]
+      
+      },{}],20:[function(require,module,exports){
+      module.exports=[
+          "An NPC takes a {disliking/liking} to {a PC/another NPC}",
+          "An NPC is caught palming a weapon by the PCs",
+          "An NPC shuffles nervously and suspiciously",
+          "An NPC becomes {fearful/angry/scared/terrified}",
+          "An NPC {insults/threatens} {a PC/another NPC}"
+      ]
+      
+      },{}],21:[function(require,module,exports){
+      arguments[4][20][0].apply(exports,arguments)
+      },{"dup":20}],22:[function(require,module,exports){
+      "use strict";
+      var __importDefault = (this && this.__importDefault) || function (mod) {
+          return (mod && mod.__esModule) ? mod : { "default": mod };
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      var seedrandom_1 = __importDefault(require("seedrandom"));
+      var RandomFunction = Math.random;
+      /**
+       * pick 1 unique values from an array, and return that value
+       *
+       * @param {any[]} array an array of values to pick from
+       */
+      exports.pick = function (array) {
+          return exports.pickMany(array, 1)[0];
+      };
+      /**
+       * pick 1 or more unique values from an array, and return a new array of those picked values
+       *
+       * @param {any[]} array an array of values to pick from
+       * @param {number} count how many unique array values to pick out
+       */
+      exports.pickMany = function (array, count) {
+          if (count === void 0) { count = 1; }
+          var arrayCopy = Array.from(array);
+          var pickedValues = [];
+          for (var i = 0; i < count; i++) {
+              var pickedIndex = exports.rand(0, arrayCopy.length - 1);
+              pickedValues.push(arrayCopy[pickedIndex]);
+              arrayCopy.splice(pickedIndex, 1);
+          }
+          return pickedValues;
+      };
+      exports.randomRace = function () { };
+      exports.randomGender = function () {
+          return exports.pick(["male", "female"]);
+      };
+      /**
+       * parse our special template syntax
+       *
+       * handles multiple "kinds" of template syntax
+       *
+       * a string containing '{alpha/beta}' will choose one at random
+       *
+       * a string starting with a $ symbol is a reference for any passed content
+       *   so '{$colour}' becomes 'blue' if content was passed as { colour: 'blue' }
+       *
+       * a string container using the linked format (symbol, double colon) e.g {X::aplha/beta}
+       *   will ensure that any other placeholder in the string that uses the same linked symbol
+       *   returns the same index of random that the first placeholder with that symbol did
+       *
+       * @param {string} string
+       */
+      exports.parseTemplate = function (string, content) {
+          if (content === void 0) { content = {}; }
+          var regex = /{(.+?)}/gm;
+          var matches = string.match(regex);
+          var linkedPlaceholderIndexes = {};
+          if (matches) {
+              // is our match a placeholder setup
+              matches.forEach(function (match) {
+                  var linkedPlaceholderMatches = /{(.+?)::(.+?)}/gm.exec(match);
+                  if (linkedPlaceholderMatches) {
+                      var rawLinkToken = linkedPlaceholderMatches[1];
+                      if (linkedPlaceholderIndexes[rawLinkToken] != null) {
+                          // if we're already setup
+                          var replacement = linkedPlaceholderMatches[2].split("/")[linkedPlaceholderIndexes[rawLinkToken]];
+                          string = string.replace(match, replacement);
+                      }
+                      else {
+                          // if not, we need to do the first one and add the index into the linkedPlaceholderIndexes
+                          var allPlaceholderChunks = linkedPlaceholderMatches[2].split("/");
+                          var newIndex = exports.rand(0, allPlaceholderChunks.length - 1);
+                          var replacement = allPlaceholderChunks[newIndex];
+                          linkedPlaceholderIndexes[rawLinkToken] = newIndex; // set it up for further matches
+                          string = string.replace(match, replacement);
+                      }
+                  }
+              });
+              matches.forEach(function (match) {
+                  if (match.charAt(1) === "$") {
+                      var replacementVarName = match.substring(2, match.length - 1);
+                      string = string.replace(match, content[replacementVarName]);
+                  }
+                  else {
+                      var replacement = exports.pick(match
+                          .substring(1)
+                          .substring(0, match.length - 2)
+                          .split("/"));
+                      string = string.replace(match, replacement);
+                  }
+              });
+          }
+          return string;
+      };
+      /**
+       * generate a random number between 2 inclusive values
+       *
+       * @param {number} min minimum number to return (inclusive)
+       * @param {number} max maximum number to return (inclusive)
+       * @param {any} seed
+       */
+      exports.rand = function (min, max) {
+          min = parseInt(min);
+          max = parseInt(max);
+          return Math.floor(RandomFunction() * (max - min + 1)) + min;
+      };
+      /**
+       *
+       * @param {number} number
+       * @param {function} func
+       */
+      exports.forCount = function (number, func) {
+          for (var i = 0; i < number; i++) {
+              func();
+          }
+      };
+      // make every word in a sentence have a capital letter
+      exports.titleCase = function (string) {
+          return string.replace(/_/g, " ").replace(/\\w\\S*/g, function (txt) {
+              return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          });
+      };
+      exports.firstCharacterUppercase = function (string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+      };
+      exports.formatRace = function (race) {
+          switch (race) {
+              case "halfOrc":
+                  return "Half-Orc";
+              case "halfElf":
+                  return "Half-Elf";
+              default:
+                  return exports.titleCase(race);
+          }
+      };
+      exports.generateUUID = function () {
+          // Public Domain/MIT
+          var d = new Date().getTime();
+          if (typeof performance !== "undefined" &&
+              typeof performance.now === "function") {
+              d += performance.now(); //use high-precision timer if available
+          }
+          return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+              var r = (d + Math.random() * 16) % 16 | 0;
+              d = Math.floor(d / 16);
+              return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+          });
+      };
+      exports.withSeed = function (seed, callback) {
+          var isFirstPass = exports.FantasyContentGeneratorSeed == null;
+          exports.FantasyContentGeneratorSeed = seed;
+          RandomFunction = seedrandom_1.default(exports.FantasyContentGeneratorSeed);
+          var returnValue = callback();
+          if (isFirstPass) {
+              exports.FantasyContentGeneratorSeed = null;
+              RandomFunction = Math.random;
+          }
+          return returnValue;
+      };
+      
+      },{"seedrandom":23}],23:[function(require,module,exports){
+      // A library of seedable RNGs implemented in Javascript.
+      //
+      // Usage:
+      //
+      // var seedrandom = require('seedrandom');
+      // var random = seedrandom(1); // or any seed.
+      // var x = random();       // 0 <= x < 1.  Every bit is random.
+      // var x = random.quick(); // 0 <= x < 1.  32 bits of randomness.
+      
+      // alea, a 53-bit multiply-with-carry generator by Johannes Baagøe.
+      // Period: ~2^116
+      // Reported to pass all BigCrush tests.
+      var alea = require('./lib/alea');
+      
+      // xor128, a pure xor-shift generator by George Marsaglia.
+      // Period: 2^128-1.
+      // Reported to fail: MatrixRank and LinearComp.
+      var xor128 = require('./lib/xor128');
+      
+      // xorwow, George Marsaglia's 160-bit xor-shift combined plus weyl.
+      // Period: 2^192-2^32
+      // Reported to fail: CollisionOver, SimpPoker, and LinearComp.
+      var xorwow = require('./lib/xorwow');
+      
+      // xorshift7, by François Panneton and Pierre L'ecuyer, takes
+      // a different approach: it adds robustness by allowing more shifts
+      // than Marsaglia's original three.  It is a 7-shift generator
+      // with 256 bits, that passes BigCrush with no systmatic failures.
+      // Period 2^256-1.
+      // No systematic BigCrush failures reported.
+      var xorshift7 = require('./lib/xorshift7');
+      
+      // xor4096, by Richard Brent, is a 4096-bit xor-shift with a
+      // very long period that also adds a Weyl generator. It also passes
+      // BigCrush with no systematic failures.  Its long period may
+      // be useful if you have many generators and need to avoid
+      // collisions.
+      // Period: 2^4128-2^32.
+      // No systematic BigCrush failures reported.
+      var xor4096 = require('./lib/xor4096');
+      
+      // Tyche-i, by Samuel Neves and Filipe Araujo, is a bit-shifting random
+      // number generator derived from ChaCha, a modern stream cipher.
+      // https://eden.dei.uc.pt/~sneves/pubs/2011-snfa2.pdf
+      // Period: ~2^127
+      // No systematic BigCrush failures reported.
+      var tychei = require('./lib/tychei');
+      
+      // The original ARC4-based prng included in this library.
+      // Period: ~2^1600
+      var sr = require('./seedrandom');
+      
+      sr.alea = alea;
+      sr.xor128 = xor128;
+      sr.xorwow = xorwow;
+      sr.xorshift7 = xorshift7;
+      sr.xor4096 = xor4096;
+      sr.tychei = tychei;
+      
+      module.exports = sr;
+      
+      },{"./lib/alea":24,"./lib/tychei":25,"./lib/xor128":26,"./lib/xor4096":27,"./lib/xorshift7":28,"./lib/xorwow":29,"./seedrandom":30}],24:[function(require,module,exports){
+      // A port of an algorithm by Johannes Baagøe <baagoe@baagoe.com>, 2010
+      // http://baagoe.com/en/RandomMusings/javascript/
+      // https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
+      // Original work is under MIT license -
+      
+      // Copyright (C) 2010 by Johannes Baagøe <baagoe@baagoe.org>
+      //
+      // Permission is hereby granted, free of charge, to any person obtaining a copy
+      // of this software and associated documentation files (the "Software"), to deal
+      // in the Software without restriction, including without limitation the rights
+      // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+      // copies of the Software, and to permit persons to whom the Software is
+      // furnished to do so, subject to the following conditions:
+      //
+      // The above copyright notice and this permission notice shall be included in
+      // all copies or substantial portions of the Software.
+      //
+      // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+      // THE SOFTWARE.
+      
+      
+      
+      (function(global, module, define) {
+      
+      function Alea(seed) {
+        var me = this, mash = Mash();
+      
+        me.next = function() {
+          var t = 2091639 * me.s0 + me.c * 2.3283064365386963e-10; // 2^-32
+          me.s0 = me.s1;
+          me.s1 = me.s2;
+          return me.s2 = t - (me.c = t | 0);
+        };
+      
+        // Apply the seeding algorithm from Baagoe.
+        me.c = 1;
+        me.s0 = mash(' ');
+        me.s1 = mash(' ');
+        me.s2 = mash(' ');
+        me.s0 -= mash(seed);
+        if (me.s0 < 0) { me.s0 += 1; }
+        me.s1 -= mash(seed);
+        if (me.s1 < 0) { me.s1 += 1; }
+        me.s2 -= mash(seed);
+        if (me.s2 < 0) { me.s2 += 1; }
+        mash = null;
+      }
+      
+      function copy(f, t) {
+        t.c = f.c;
+        t.s0 = f.s0;
+        t.s1 = f.s1;
+        t.s2 = f.s2;
+        return t;
+      }
+      
+      function impl(seed, opts) {
+        var xg = new Alea(seed),
+            state = opts && opts.state,
+            prng = xg.next;
+        prng.int32 = function() { return (xg.next() * 0x100000000) | 0; }
+        prng.double = function() {
+          return prng() + (prng() * 0x200000 | 0) * 1.1102230246251565e-16; // 2^-53
+        };
+        prng.quick = prng;
+        if (state) {
+          if (typeof(state) == 'object') copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      function Mash() {
+        var n = 0xefc8249d;
+      
+        var mash = function(data) {
+          data = String(data);
+          for (var i = 0; i < data.length; i++) {
+            n += data.charCodeAt(i);
+            var h = 0.02519603282416938 * n;
+            n = h >>> 0;
+            h -= n;
+            h *= n;
+            n = h >>> 0;
+            h -= n;
+            n += h * 0x100000000; // 2^32
+          }
+          return (n >>> 0) * 2.3283064365386963e-10; // 2^-32
+        };
+      
+        return mash;
+      }
+      
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.alea = impl;
+      }
+      
+      })(
+        this,
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      
+      
+      },{}],25:[function(require,module,exports){
+      // A Javascript implementaion of the "Tyche-i" prng algorithm by
+      // Samuel Neves and Filipe Araujo.
+      // See https://eden.dei.uc.pt/~sneves/pubs/2011-snfa2.pdf
+      
+      (function(global, module, define) {
+      
+      function XorGen(seed) {
+        var me = this, strseed = '';
+      
+        // Set up generator function.
+        me.next = function() {
+          var b = me.b, c = me.c, d = me.d, a = me.a;
+          b = (b << 25) ^ (b >>> 7) ^ c;
+          c = (c - d) | 0;
+          d = (d << 24) ^ (d >>> 8) ^ a;
+          a = (a - b) | 0;
+          me.b = b = (b << 20) ^ (b >>> 12) ^ c;
+          me.c = c = (c - d) | 0;
+          me.d = (d << 16) ^ (c >>> 16) ^ a;
+          return me.a = (a - b) | 0;
+        };
+      
+        /* The following is non-inverted tyche, which has better internal
+         * bit diffusion, but which is about 25% slower than tyche-i in JS.
+        me.next = function() {
+          var a = me.a, b = me.b, c = me.c, d = me.d;
+          a = (me.a + me.b | 0) >>> 0;
+          d = me.d ^ a; d = d << 16 ^ d >>> 16;
+          c = me.c + d | 0;
+          b = me.b ^ c; b = b << 12 ^ d >>> 20;
+          me.a = a = a + b | 0;
+          d = d ^ a; me.d = d = d << 8 ^ d >>> 24;
+          me.c = c = c + d | 0;
+          b = b ^ c;
+          return me.b = (b << 7 ^ b >>> 25);
+        }
+        */
+      
+        me.a = 0;
+        me.b = 0;
+        me.c = 2654435769 | 0;
+        me.d = 1367130551;
+      
+        if (seed === Math.floor(seed)) {
+          // Integer seed.
+          me.a = (seed / 0x100000000) | 0;
+          me.b = seed | 0;
+        } else {
+          // String seed.
+          strseed += seed;
+        }
+      
+        // Mix in string seed, then discard an initial batch of 64 values.
+        for (var k = 0; k < strseed.length + 20; k++) {
+          me.b ^= strseed.charCodeAt(k) | 0;
+          me.next();
+        }
+      }
+      
+      function copy(f, t) {
+        t.a = f.a;
+        t.b = f.b;
+        t.c = f.c;
+        t.d = f.d;
+        return t;
+      };
+      
+      function impl(seed, opts) {
+        var xg = new XorGen(seed),
+            state = opts && opts.state,
+            prng = function() { return (xg.next() >>> 0) / 0x100000000; };
+        prng.double = function() {
+          do {
+            var top = xg.next() >>> 11,
+                bot = (xg.next() >>> 0) / 0x100000000,
+                result = (top + bot) / (1 << 21);
+          } while (result === 0);
+          return result;
+        };
+        prng.int32 = xg.next;
+        prng.quick = prng;
+        if (state) {
+          if (typeof(state) == 'object') copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.tychei = impl;
+      }
+      
+      })(
+        this,
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      
+      
+      },{}],26:[function(require,module,exports){
+      // A Javascript implementaion of the "xor128" prng algorithm by
+      // George Marsaglia.  See http://www.jstatsoft.org/v08/i14/paper
+      
+      (function(global, module, define) {
+      
+      function XorGen(seed) {
+        var me = this, strseed = '';
+      
+        me.x = 0;
+        me.y = 0;
+        me.z = 0;
+        me.w = 0;
+      
+        // Set up generator function.
+        me.next = function() {
+          var t = me.x ^ (me.x << 11);
+          me.x = me.y;
+          me.y = me.z;
+          me.z = me.w;
+          return me.w ^= (me.w >>> 19) ^ t ^ (t >>> 8);
+        };
+      
+        if (seed === (seed | 0)) {
+          // Integer seed.
+          me.x = seed;
+        } else {
+          // String seed.
+          strseed += seed;
+        }
+      
+        // Mix in string seed, then discard an initial batch of 64 values.
+        for (var k = 0; k < strseed.length + 64; k++) {
+          me.x ^= strseed.charCodeAt(k) | 0;
+          me.next();
+        }
+      }
+      
+      function copy(f, t) {
+        t.x = f.x;
+        t.y = f.y;
+        t.z = f.z;
+        t.w = f.w;
+        return t;
+      }
+      
+      function impl(seed, opts) {
+        var xg = new XorGen(seed),
+            state = opts && opts.state,
+            prng = function() { return (xg.next() >>> 0) / 0x100000000; };
+        prng.double = function() {
+          do {
+            var top = xg.next() >>> 11,
+                bot = (xg.next() >>> 0) / 0x100000000,
+                result = (top + bot) / (1 << 21);
+          } while (result === 0);
+          return result;
+        };
+        prng.int32 = xg.next;
+        prng.quick = prng;
+        if (state) {
+          if (typeof(state) == 'object') copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.xor128 = impl;
+      }
+      
+      })(
+        this,
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      
+      
+      },{}],27:[function(require,module,exports){
+      // A Javascript implementaion of Richard Brent's Xorgens xor4096 algorithm.
+      //
+      // This fast non-cryptographic random number generator is designed for
+      // use in Monte-Carlo algorithms. It combines a long-period xorshift
+      // generator with a Weyl generator, and it passes all common batteries
+      // of stasticial tests for randomness while consuming only a few nanoseconds
+      // for each prng generated.  For background on the generator, see Brent's
+      // paper: "Some long-period random number generators using shifts and xors."
+      // http://arxiv.org/pdf/1004.3115v1.pdf
+      //
+      // Usage:
+      //
+      // var xor4096 = require('xor4096');
+      // random = xor4096(1);                        // Seed with int32 or string.
+      // assert.equal(random(), 0.1520436450538547); // (0, 1) range, 53 bits.
+      // assert.equal(random.int32(), 1806534897);   // signed int32, 32 bits.
+      //
+      // For nonzero numeric keys, this impelementation provides a sequence
+      // identical to that by Brent's xorgens 3 implementaion in C.  This
+      // implementation also provides for initalizing the generator with
+      // string seeds, or for saving and restoring the state of the generator.
+      //
+      // On Chrome, this prng benchmarks about 2.1 times slower than
+      // Javascript's built-in Math.random().
+      
+      (function(global, module, define) {
+      
+      function XorGen(seed) {
+        var me = this;
+      
+        // Set up generator function.
+        me.next = function() {
+          var w = me.w,
+              X = me.X, i = me.i, t, v;
+          // Update Weyl generator.
+          me.w = w = (w + 0x61c88647) | 0;
+          // Update xor generator.
+          v = X[(i + 34) & 127];
+          t = X[i = ((i + 1) & 127)];
+          v ^= v << 13;
+          t ^= t << 17;
+          v ^= v >>> 15;
+          t ^= t >>> 12;
+          // Update Xor generator array state.
+          v = X[i] = v ^ t;
+          me.i = i;
+          // Result is the combination.
+          return (v + (w ^ (w >>> 16))) | 0;
+        };
+      
+        function init(me, seed) {
+          var t, v, i, j, w, X = [], limit = 128;
+          if (seed === (seed | 0)) {
+            // Numeric seeds initialize v, which is used to generates X.
+            v = seed;
+            seed = null;
+          } else {
+            // String seeds are mixed into v and X one character at a time.
+            seed = seed + '\\0';
+            v = 0;
+            limit = Math.max(limit, seed.length);
+          }
+          // Initialize circular array and weyl value.
+          for (i = 0, j = -32; j < limit; ++j) {
+            // Put the unicode characters into the array, and shuffle them.
+            if (seed) v ^= seed.charCodeAt((j + 32) % seed.length);
+            // After 32 shuffles, take v as the starting w value.
+            if (j === 0) w = v;
+            v ^= v << 10;
+            v ^= v >>> 15;
+            v ^= v << 4;
+            v ^= v >>> 13;
+            if (j >= 0) {
+              w = (w + 0x61c88647) | 0;     // Weyl.
+              t = (X[j & 127] ^= (v + w));  // Combine xor and weyl to init array.
+              i = (0 == t) ? i + 1 : 0;     // Count zeroes.
+            }
+          }
+          // We have detected all zeroes; make the key nonzero.
+          if (i >= 128) {
+            X[(seed && seed.length || 0) & 127] = -1;
+          }
+          // Run the generator 512 times to further mix the state before using it.
+          // Factoring this as a function slows the main generator, so it is just
+          // unrolled here.  The weyl generator is not advanced while warming up.
+          i = 127;
+          for (j = 4 * 128; j > 0; --j) {
+            v = X[(i + 34) & 127];
+            t = X[i = ((i + 1) & 127)];
+            v ^= v << 13;
+            t ^= t << 17;
+            v ^= v >>> 15;
+            t ^= t >>> 12;
+            X[i] = v ^ t;
+          }
+          // Storing state as object members is faster than using closure variables.
+          me.w = w;
+          me.X = X;
+          me.i = i;
+        }
+      
+        init(me, seed);
+      }
+      
+      function copy(f, t) {
+        t.i = f.i;
+        t.w = f.w;
+        t.X = f.X.slice();
+        return t;
+      };
+      
+      function impl(seed, opts) {
+        if (seed == null) seed = +(new Date);
+        var xg = new XorGen(seed),
+            state = opts && opts.state,
+            prng = function() { return (xg.next() >>> 0) / 0x100000000; };
+        prng.double = function() {
+          do {
+            var top = xg.next() >>> 11,
+                bot = (xg.next() >>> 0) / 0x100000000,
+                result = (top + bot) / (1 << 21);
+          } while (result === 0);
+          return result;
+        };
+        prng.int32 = xg.next;
+        prng.quick = prng;
+        if (state) {
+          if (state.X) copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.xor4096 = impl;
+      }
+      
+      })(
+        this,                                     // window object or global
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      },{}],28:[function(require,module,exports){
+      // A Javascript implementaion of the "xorshift7" algorithm by
+      // François Panneton and Pierre L'ecuyer:
+      // "On the Xorgshift Random Number Generators"
+      // http://saluc.engr.uconn.edu/refs/crypto/rng/panneton05onthexorshift.pdf
+      
+      (function(global, module, define) {
+      
+      function XorGen(seed) {
+        var me = this;
+      
+        // Set up generator function.
+        me.next = function() {
+          // Update xor generator.
+          var X = me.x, i = me.i, t, v, w;
+          t = X[i]; t ^= (t >>> 7); v = t ^ (t << 24);
+          t = X[(i + 1) & 7]; v ^= t ^ (t >>> 10);
+          t = X[(i + 3) & 7]; v ^= t ^ (t >>> 3);
+          t = X[(i + 4) & 7]; v ^= t ^ (t << 7);
+          t = X[(i + 7) & 7]; t = t ^ (t << 13); v ^= t ^ (t << 9);
+          X[i] = v;
+          me.i = (i + 1) & 7;
+          return v;
+        };
+      
+        function init(me, seed) {
+          var j, w, X = [];
+      
+          if (seed === (seed | 0)) {
+            // Seed state array using a 32-bit integer.
+            w = X[0] = seed;
+          } else {
+            // Seed state using a string.
+            seed = '' + seed;
+            for (j = 0; j < seed.length; ++j) {
+              X[j & 7] = (X[j & 7] << 15) ^
+                  (seed.charCodeAt(j) + X[(j + 1) & 7] << 13);
+            }
+          }
+          // Enforce an array length of 8, not all zeroes.
+          while (X.length < 8) X.push(0);
+          for (j = 0; j < 8 && X[j] === 0; ++j);
+          if (j == 8) w = X[7] = -1; else w = X[j];
+      
+          me.x = X;
+          me.i = 0;
+      
+          // Discard an initial 256 values.
+          for (j = 256; j > 0; --j) {
+            me.next();
+          }
+        }
+      
+        init(me, seed);
+      }
+      
+      function copy(f, t) {
+        t.x = f.x.slice();
+        t.i = f.i;
+        return t;
+      }
+      
+      function impl(seed, opts) {
+        if (seed == null) seed = +(new Date);
+        var xg = new XorGen(seed),
+            state = opts && opts.state,
+            prng = function() { return (xg.next() >>> 0) / 0x100000000; };
+        prng.double = function() {
+          do {
+            var top = xg.next() >>> 11,
+                bot = (xg.next() >>> 0) / 0x100000000,
+                result = (top + bot) / (1 << 21);
+          } while (result === 0);
+          return result;
+        };
+        prng.int32 = xg.next;
+        prng.quick = prng;
+        if (state) {
+          if (state.x) copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.xorshift7 = impl;
+      }
+      
+      })(
+        this,
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      
+      },{}],29:[function(require,module,exports){
+      // A Javascript implementaion of the "xorwow" prng algorithm by
+      // George Marsaglia.  See http://www.jstatsoft.org/v08/i14/paper
+      
+      (function(global, module, define) {
+      
+      function XorGen(seed) {
+        var me = this, strseed = '';
+      
+        // Set up generator function.
+        me.next = function() {
+          var t = (me.x ^ (me.x >>> 2));
+          me.x = me.y; me.y = me.z; me.z = me.w; me.w = me.v;
+          return (me.d = (me.d + 362437 | 0)) +
+             (me.v = (me.v ^ (me.v << 4)) ^ (t ^ (t << 1))) | 0;
+        };
+      
+        me.x = 0;
+        me.y = 0;
+        me.z = 0;
+        me.w = 0;
+        me.v = 0;
+      
+        if (seed === (seed | 0)) {
+          // Integer seed.
+          me.x = seed;
+        } else {
+          // String seed.
+          strseed += seed;
+        }
+      
+        // Mix in string seed, then discard an initial batch of 64 values.
+        for (var k = 0; k < strseed.length + 64; k++) {
+          me.x ^= strseed.charCodeAt(k) | 0;
+          if (k == strseed.length) {
+            me.d = me.x << 10 ^ me.x >>> 4;
+          }
+          me.next();
+        }
+      }
+      
+      function copy(f, t) {
+        t.x = f.x;
+        t.y = f.y;
+        t.z = f.z;
+        t.w = f.w;
+        t.v = f.v;
+        t.d = f.d;
+        return t;
+      }
+      
+      function impl(seed, opts) {
+        var xg = new XorGen(seed),
+            state = opts && opts.state,
+            prng = function() { return (xg.next() >>> 0) / 0x100000000; };
+        prng.double = function() {
+          do {
+            var top = xg.next() >>> 11,
+                bot = (xg.next() >>> 0) / 0x100000000,
+                result = (top + bot) / (1 << 21);
+          } while (result === 0);
+          return result;
+        };
+        prng.int32 = xg.next;
+        prng.quick = prng;
+        if (state) {
+          if (typeof(state) == 'object') copy(state, xg);
+          prng.state = function() { return copy(xg, {}); }
+        }
+        return prng;
+      }
+      
+      if (module && module.exports) {
+        module.exports = impl;
+      } else if (define && define.amd) {
+        define(function() { return impl; });
+      } else {
+        this.xorwow = impl;
+      }
+      
+      })(
+        this,
+        (typeof module) == 'object' && module,    // present in node.js
+        (typeof define) == 'function' && define   // present with an AMD loader
+      );
+      
+      
+      
+      },{}],30:[function(require,module,exports){
+      /*
+      Copyright 2019 David Bau.
+      
+      Permission is hereby granted, free of charge, to any person obtaining
+      a copy of this software and associated documentation files (the
+      "Software"), to deal in the Software without restriction, including
+      without limitation the rights to use, copy, modify, merge, publish,
+      distribute, sublicense, and/or sell copies of the Software, and to
+      permit persons to whom the Software is furnished to do so, subject to
+      the following conditions:
+      
+      The above copyright notice and this permission notice shall be
+      included in all copies or substantial portions of the Software.
+      
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+      IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+      CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+      TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+      SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      
+      */
+      
+      (function (global, pool, math) {
+      //
+      // The following constants are related to IEEE 754 limits.
+      //
+      
+      var width = 256,        // each RC4 output is 0 <= x < 256
+          chunks = 6,         // at least six RC4 outputs for each double
+          digits = 52,        // there are 52 significant digits in a double
+          rngname = 'random', // rngname: name for Math.random and Math.seedrandom
+          startdenom = math.pow(width, chunks),
+          significance = math.pow(2, digits),
+          overflow = significance * 2,
+          mask = width - 1,
+          nodecrypto;         // node.js crypto module, initialized at the bottom.
+      
+      //
+      // seedrandom()
+      // This is the seedrandom function described above.
+      //
+      function seedrandom(seed, options, callback) {
+        var key = [];
+        options = (options == true) ? { entropy: true } : (options || {});
+      
+        // Flatten the seed string or build one from local entropy if needed.
+        var shortseed = mixkey(flatten(
+          options.entropy ? [seed, tostring(pool)] :
+          (seed == null) ? autoseed() : seed, 3), key);
+      
+        // Use the seed to initialize an ARC4 generator.
+        var arc4 = new ARC4(key);
+      
+        // This function returns a random double in [0, 1) that contains
+        // randomness in every bit of the mantissa of the IEEE 754 value.
+        var prng = function() {
+          var n = arc4.g(chunks),             // Start with a numerator n < 2 ^ 48
+              d = startdenom,                 //   and denominator d = 2 ^ 48.
+              x = 0;                          //   and no 'extra last byte'.
+          while (n < significance) {          // Fill up all significant digits by
+            n = (n + x) * width;              //   shifting numerator and
+            d *= width;                       //   denominator and generating a
+            x = arc4.g(1);                    //   new least-significant-byte.
+          }
+          while (n >= overflow) {             // To avoid rounding up, before adding
+            n /= 2;                           //   last byte, shift everything
+            d /= 2;                           //   right using integer math until
+            x >>>= 1;                         //   we have exactly the desired bits.
+          }
+          return (n + x) / d;                 // Form the number within [0, 1).
+        };
+      
+        prng.int32 = function() { return arc4.g(4) | 0; }
+        prng.quick = function() { return arc4.g(4) / 0x100000000; }
+        prng.double = prng;
+      
+        // Mix the randomness into accumulated entropy.
+        mixkey(tostring(arc4.S), pool);
+      
+        // Calling convention: what to return as a function of prng, seed, is_math.
+        return (options.pass || callback ||
+            function(prng, seed, is_math_call, state) {
+              if (state) {
+                // Load the arc4 state from the given state if it has an S array.
+                if (state.S) { copy(state, arc4); }
+                // Only provide the .state method if requested via options.state.
+                prng.state = function() { return copy(arc4, {}); }
+              }
+      
+              // If called as a method of Math (Math.seedrandom()), mutate
+              // Math.random because that is how seedrandom.js has worked since v1.0.
+              if (is_math_call) { math[rngname] = prng; return seed; }
+      
+              // Otherwise, it is a newer calling convention, so return the
+              // prng directly.
+              else return prng;
+            })(
+        prng,
+        shortseed,
+        'global' in options ? options.global : (this == math),
+        options.state);
+      }
+      
+      //
+      // ARC4
+      //
+      // An ARC4 implementation.  The constructor takes a key in the form of
+      // an array of at most (width) integers that should be 0 <= x < (width).
+      //
+      // The g(count) method returns a pseudorandom integer that concatenates
+      // the next (count) outputs from ARC4.  Its return value is a number x
+      // that is in the range 0 <= x < (width ^ count).
+      //
+      function ARC4(key) {
+        var t, keylen = key.length,
+            me = this, i = 0, j = me.i = me.j = 0, s = me.S = [];
+      
+        // The empty key [] is treated as [0].
+        if (!keylen) { key = [keylen++]; }
+      
+        // Set up S using the standard key scheduling algorithm.
+        while (i < width) {
+          s[i] = i++;
+        }
+        for (i = 0; i < width; i++) {
+          s[i] = s[j = mask & (j + key[i % keylen] + (t = s[i]))];
+          s[j] = t;
+        }
+      
+        // The "g" method returns the next (count) outputs as one number.
+        (me.g = function(count) {
+          // Using instance members instead of closure state nearly doubles speed.
+          var t, r = 0,
+              i = me.i, j = me.j, s = me.S;
+          while (count--) {
+            t = s[i = mask & (i + 1)];
+            r = r * width + s[mask & ((s[i] = s[j = mask & (j + t)]) + (s[j] = t))];
+          }
+          me.i = i; me.j = j;
+          return r;
+          // For robust unpredictability, the function call below automatically
+          // discards an initial batch of values.  This is called RC4-drop[256].
+          // See http://google.com/search?q=rsa+fluhrer+response&btnI
+        })(width);
+      }
+      
+      //
+      // copy()
+      // Copies internal state of ARC4 to or from a plain object.
+      //
+      function copy(f, t) {
+        t.i = f.i;
+        t.j = f.j;
+        t.S = f.S.slice();
+        return t;
+      };
+      
+      //
+      // flatten()
+      // Converts an object tree to nested arrays of strings.
+      //
+      function flatten(obj, depth) {
+        var result = [], typ = (typeof obj), prop;
+        if (depth && typ == 'object') {
+          for (prop in obj) {
+            try { result.push(flatten(obj[prop], depth - 1)); } catch (e) {}
+          }
+        }
+        return (result.length ? result : typ == 'string' ? obj : obj + '\\0');
+      }
+      
+      //
+      // mixkey()
+      // Mixes a string seed into a key that is an array of integers, and
+      // returns a shortened string seed that is equivalent to the result key.
+      //
+      function mixkey(seed, key) {
+        var stringseed = seed + '', smear, j = 0;
+        while (j < stringseed.length) {
+          key[mask & j] =
+            mask & ((smear ^= key[mask & j] * 19) + stringseed.charCodeAt(j++));
+        }
+        return tostring(key);
+      }
+      
+      //
+      // autoseed()
+      // Returns an object for autoseeding, using window.crypto and Node crypto
+      // module if available.
+      //
+      function autoseed() {
+        try {
+          var out;
+          if (nodecrypto && (out = nodecrypto.randomBytes)) {
+            // The use of 'out' to remember randomBytes makes tight minified code.
+            out = out(width);
+          } else {
+            out = new Uint8Array(width);
+            (global.crypto || global.msCrypto).getRandomValues(out);
+          }
+          return tostring(out);
+        } catch (e) {
+          var browser = global.navigator,
+              plugins = browser && browser.plugins;
+          return [+new Date, global, plugins, global.screen, tostring(pool)];
+        }
+      }
+      
+      //
+      // tostring()
+      // Converts an array of charcodes to a string
+      //
+      function tostring(a) {
+        return String.fromCharCode.apply(0, a);
+      }
+      
+      //
+      // When seedrandom.js is loaded, we immediately mix a few bits
+      // from the built-in RNG into the entropy pool.  Because we do
+      // not want to interfere with deterministic PRNG state later,
+      // seedrandom will not call math.random on its own again after
+      // initialization.
+      //
+      mixkey(math.random(), pool);
+      
+      //
+      // Nodejs and AMD support: export the implementation as a module using
+      // either convention.
+      //
+      if ((typeof module) == 'object' && module.exports) {
+        module.exports = seedrandom;
+        // When in node.js, try using crypto package for autoseeding.
+        try {
+          nodecrypto = require('crypto');
+        } catch (ex) {}
+      } else if ((typeof define) == 'function' && define.amd) {
+        define(function() { return seedrandom; });
+      } else {
+        // When included as a plain script, set up Math.seedrandom global.
+        math['seed' + rngname] = seedrandom;
+      }
+      
+      
+      // End anonymous scope, and pass initial values.
+      })(
+        // global: self in browsers (including strict mode and web workers),
+        // otherwise this in Node and other environments
+        (typeof self !== 'undefined') ? self : this,
+        [],     // pool: entropy pool starts empty
+        Math    // math: package containing random, pow, and seedrandom
+      );
+      
+      },{"crypto":31}],31:[function(require,module,exports){
+      
+      },{}]},{},[1]);
+      
+  <`+`/script>`+`
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+      body {
+        font-family: serif !important;
+        background-image: url('https://www.doylestownhistorical.org/wp-content/uploads/2016/05/parchment-paper-cropped.jpg');
+ a       background-size: cover;
+        filter: sepia(100%);
+      }
+ 
+      .accordion {
+        --bs-accordion-bg: transparent !important;
+      }
+  
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.5) !important;
+      }
+    </style>
+  <main class="font-serif">
+    <div class="mt-3 mb-3 text-center">
+      <h1>I forgot to make a character!</h1>
+      <p>
+        Looks like someone forgot to make a character and doesn't have the time to do a bunch of complicated math and backstory stuff before the game tonight. You're in luck, we here at i-forgot-to-make-a-character.tech are experts in putting together some random gobbledygook to make a cool and totally balanced character for you! If you're unhappy with any of our choices then just enter a new value into the desired field!
+      </p>
+      <button class="btn btn-primary" onclick="randVals()">
+        ROLL!
+      </button>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div class="mb-3">
+              <div class="form-floating">
+                <input class="form-control" id="characterName" />
+                <label for="characterName">Character Name</label>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="level" />
+                  <label for="level">Level</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="class" />
+                  <label for="class">Class</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="background" />
+                  <label for="background">Background</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="playerName" />
+                  <label for="playerName">Player Name</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="race" />
+                  <label for="race">Race</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="alignment" />
+                  <label for="alignment">Alignment</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="experiencePoints" />
+                  <label for="experiencePoints">Experience Points</label>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="strength" />
+                  <label for="strength">Strength</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="dexterity" />
+                  <label for="dexterity">Dexterity</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="constitution" />
+                  <label for="constitution">Constitution</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="intelligence" />
+                  <label for="intelligence">Intelligence</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="wisdom" />
+                  <label for="wisdom">Wisdom</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="charisma" />
+                  <label for="charisma">Charisma</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-3">
+                <h6 class="text-center">Saving Throws</h6>
+                <div class="row">
+                  <div class="col-8">Strength</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsStrength" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Dexterity</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsDexterity" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Constitution</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsConstitution" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Intelligence</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsIntelligence" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Wisdom</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsWisdom" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">Charisma</div>
+                  <div class="col-4">
+                    <input class="form-control" type="text" id="savingThrowsCharisma" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-9">
+                <h6 class="text-center">Skills</h6>
+                <div class="row">
+                  <div class="col-4">
+                    <div class="row">
+                      <div class="col-8">Acrobatics <span class="text-muted">(Dex)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="acrobatics" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Animal Handling <span class="text-muted">(Wis)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="animalHandling" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Arcana <span class="text-muted">(Int)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="arcana" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Athletics <span class="text-muted">(Str)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="athletics" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Deception <span class="text-muted">(Cha)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="deception" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">History <span class="text-muted">(Int)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="history" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="row">
+                      <div class="col-8">Insight <span class="text-muted">(Wis)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="insight" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Intimidation <span class="text-muted">(Cha)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="intimidation" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Investigation <span class="text-muted">(Int)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="investigation" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Medicine <span class="text-muted">(Wis)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="medicine" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Nature <span class="text-muted">(Int)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="nature" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Perception <span class="text-muted">(Wis)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="perception" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="row">
+                      <div class="col-8">Performance <span class="text-muted">(Cha)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="performance" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Persuasion <span class="text-muted">(Cha)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="persuasion" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Religion <span class="text-muted">(Int)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="religion" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Sleight of Hand <span class="text-muted">(Dex)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="sleightOfHand" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Stealth <span class="text-muted">(Dex)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="stealth" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">Survival <span class="text-muted">(Wis)</span></div>
+                      <div class="col-4">
+                        <input class="form-control" type="text" id="survival" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="inspiration" />
+                  <label for="inspiration">Inspiration</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="proficiencyBonus" />
+                  <label for="proficiencyBonus">Proficiency Bonus</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="passiveWisdom" />
+                  <label for="passiveWisdom">Passive Wisdom</label>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="armorClass" />
+                  <label for="armorClass">Armor Class</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="initiative" />
+                  <label for="initiative">Initiative</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="speed" />
+                  <label for="speed">Speed</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="maxHitPoints" />
+                  <label for="maxHitPoints">Maximum Hit Points</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="hitPoints" />
+                  <label for="hitPoints">Hit Points</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating">
+                  <input class="form-control" id="tempHitPoints" />
+                  <label for="tempHitPoints">Temporary Hit Points</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <div class="row">
+                  <h6 class="text-center">Hit Dice</h6>
+                  <div class="col-6">
+                    <div class="form-floating">
+                      <input class="form-control" id="totalHitDice" />
+                      <label for="totalHitDice">Total</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-floating">
+                      <input class="form-control" id="hitDice" />
+                      <label for="hitDice">Hit Dice</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <h6 class="text-center">Death Saves</h6>
+                  <div class="col-6">
+                    <div class="form-floating">
+                      <input class="form-control" id="deathSaveSuccesses" />
+                      <label for="deathSaveSuccesses">Successes</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-floating">
+                      <input class="form-control" id="deathSaveFailures" />
+                      <label for="deathSaveFailures">Failures</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="personalityTraits" />
+                  <label for="personalityTraits">Personality Traits</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="ideals" />
+                  <label for="ideals">Ideals</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="bonds" />
+                  <label for="bonds">Bonds</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input class="form-control" id="flaws" />
+                  <label for="flaws">Flaws</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="container-fluid">
+              <h5 class="text-center">Attacks and Spellcasting</h5>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <h6 class="text-center">Name</h6>
+                </div>
+                <div class="col-4">
+                  <h6 class="text-center">Attack Bonus</h6>
+                </div>
+                <div class="col-4">
+                  <h6 class="text-center">Damage/Type</h6>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <input class="form-control" id="attackName1" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackBonus1" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackDamage1" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <input class="form-control" id="attackName2" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackBonus2" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackDamage2" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4">
+                  <input class="form-control" id="attackName3" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackBonus3" />
+                </div>
+                <div class="col-4">
+                  <input class="form-control" id="attackDamage3" />
+                </div>
+              </div>
+              <textarea class="form-control" id="attackExtra"></textarea>
+              <hr />
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="proficienciesAndLanguages"></textarea>
+                <label for="proficienciesAndLanguages">Other Proficiencies and Languages</label>
+              </div>
+              <div class="row mb-3">
+                <div class="col-1"></div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="equipmentCP" />
+                    <label for="equipmentCP">CP</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="equipmentSP" />
+                    <label for="equipmentSP">SP</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="equipmentEP" />
+                    <label for="equipmentEP">EP</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="equipmentGP" />
+                    <label for="equipmentGP">GP</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input class="form-control" id="equipmentPP" />
+                    <label for="equipmentPP">PP</label>
+                  </div>
+                </div>
+                <div class="col-1"></div>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="equipment"></textarea>
+                <label for="equipment">Equipment</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="featuresAndTraits"></textarea>
+                <label for="featuresAndTraits">Features and Traits</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // API
+      async function apiRequest(value) {
+        const response = await fetch("https://www.dnd5eapi.co" + value);
+        const json = await response.json();
+        return json;
+      }
+
+      async function randStats(randClass, randRace, randBackground, randAlignment) {
+        var strength = 8;
+        var dexterity = 8;
+        var constitution = 8;
+        var intelligence = 8;
+        var wisdom = 8;
+        var charisma = 8;
+
+        var abilities = [
+          strength,
+          dexterity,
+          constitution,
+          intelligence,
+          wisdom,
+          charisma
+        ];
+
+        var points = 25;
+        while (points != 0) {
+          abilityIndex = Math.floor(Math.random() * 6);
+          abilities[abilityIndex] += 1;
+          points -= 1;
+        }
+
+        var indices = {
+          str: 0,
+          dex: 1,
+          con: 2,
+          int: 3,
+          wis: 4,
+          cha: 5,
+        }
+
+        var race = await apiRequest(randRace.url);
+        for (const bonus of race.ability_bonuses) {
+          abilities[indices[bonus.ability_score.index]] += bonus.bonus;
+        }
+
+        document.getElementById("strength").value = abilities[0];
+        document.getElementById("dexterity").value = abilities[1];
+        document.getElementById("constitution").value = abilities[2];
+        document.getElementById("intelligence").value = abilities[3];
+        document.getElementById("wisdom").value = abilities[4];
+        document.getElementById("charisma").value = abilities[5];
+
+        var throwIds = {
+          str: 'savingThrowsStrength',
+          dex: 'savingThrowsDexterity',
+          con: 'savingThrowsConstitution',
+          int: 'savingThrowsIntelligence',
+          wis: 'savingThrowsWisdom',
+          cha: 'savingThrowsCharisma',
+        }
+
+        const clazz = await apiRequest(randClass.url);
+
+        for (const id in throwIds) {
+          document.getElementById(throwIds[id]).value = '0';
+        }
+
+        for (const savingThrow of clazz.saving_throws) {
+          // not sure what saving throws are
+          document.getElementById(throwIds[savingThrow.index]).value = Math.floor(abilities[indices[savingThrow.index]] / 2) - 5;
+        }
+
+        // select a language from the possibilities
+        var selectedLanguages = [];
+        if ('languages' in race) {
+          for (const l of race.languages.map(i => i.name)) {
+            selectedLanguages.push(l);
+          }
+        }
+
+        var skillMapping = {
+          'skill-acrobatics': 'acrobatics',
+          'skill-animal-handling': 'animalHandling',
+          'skill-arcana': 'arcana',
+          'skill-athletics': 'athletics',
+          'skill-deception': 'deception',
+          'skill-history': 'history',
+          'skill-insight': 'insight',
+          'skill-intimidation': 'intimidation',
+          'skill-investigation': 'investigation',
+          'skill-medicine': 'medicine',
+          'skill-nature': 'nature',
+          'skill-perception': 'perception',
+          'skill-performance': 'performance',
+          'skill-persuasion': 'persuasion',
+          'skill-religion': 'religion',
+          'skill-sleight-of-hand': 'sleightOfHand',
+          'skill-stealth': 'stealth',
+          'skill-survival': 'survival',
+        };
+
+        var skillAbility = {
+          'skill-acrobatics': 'dex',
+          'skill-animal-handling': 'wis',
+          'skill-arcana': 'int',
+          'skill-athletics': 'str',
+          'skill-deception': 'cha',
+          'skill-history': 'int',
+          'skill-insight': 'wis',
+          'skill-intimidation': 'cha',
+          'skill-investigation': 'int',
+          'skill-medicine': 'wis',
+          'skill-nature': 'int',
+          'skill-perception': 'wis',
+          'skill-performance': 'cha',
+          'skill-persuasion': 'cha',
+          'skill-religion': 'int',
+          'skill-sleight-of-hand': 'dex',
+          'skill-stealth': 'dex',
+          'skill-survival': 'wis',
+        };
+
+        if ('language_options' in race) {
+          var possibleLanguages = race.language_options.from.options.map(i => i.item.name);
+          for (var i = 0; i < race.language_options.choose; i++) {
+            var index = Math.floor(Math.random() * possibleLanguages.length);
+            selectedLanguages.push(possibleLanguages[index]);
+            possibleLanguages.splice(index, 1);
+          }
+        }
+
+        document.getElementById("proficienciesAndLanguages").value = selectedLanguages.join(', ');
+
+        // select proficiencies
+        var selectedProficiencies = [];
+        if ('proficiencies' in clazz) {
+          for (const l of clazz.proficiencies) {
+            selectedProficiencies.push(l.url);
+          }
+        }
+
+        if ('proficiency_choices' in clazz) {
+          var possibleProficiencies = clazz.proficiency_choices[0].from.options.map(i => i.item.url);
+          for (var i = 0; i < clazz.proficiency_choices[0].choose; i++) {
+            var index = Math.floor(Math.random() * possibleProficiencies.length);
+            selectedProficiencies.push(possibleProficiencies[index]);
+            possibleProficiencies.splice(index, 1);
+          }
+        }
+
+        for (const id in skillMapping) {
+          document.getElementById(skillMapping[id]).value = abilities[indices[skillAbility[id]]];
+        }
+
+        for (const proficiency of selectedProficiencies) {
+          const prof = await apiRequest(proficiency);
+          if (prof.type == 'Skills') {
+            document.getElementById(skillMapping[prof.index]).value = +document.getElementById(skillMapping[prof.index]).value + 2;
+          }
+        }
+      }
+
+      async function randVals() {
+        var classes = await apiRequest("/api/classes");
+        var races = await apiRequest("/api/races");
+        var backgrounds = await apiRequest("/api/backgrounds");
+        var alignments = await apiRequest("/api/alignments");
+
+        var randClass = classes.results[Math.floor(Math.random() * classes.count)];
+        var randRace = races.results[Math.floor(Math.random() * races.count)];
+        var randBackground = backgrounds.results[Math.floor(Math.random() * backgrounds.count)];
+        var randAlignment = alignments.results[Math.floor(Math.random() * alignments.count)];
+
+        document.getElementById('level').value = 1;
+        document.getElementById('proficiencyBonus').value = 2;
+        var name = document.getElementById("characterName");
+        var charClass = document.getElementById("class");
+        var race = document.getElementById("race");
+        var background = document.getElementById("background");
+        var alignment = document.getElementById("alignment");
+
+        name.value = globalThis.generateName();
+        charClass.value = randClass.name;
+        race.value = randRace.name;
+        background.value = randBackground.name;
+        alignment.value = randAlignment.name;
+
+        await randStats(randClass, randRace, randBackground, randAlignment);
+
+        // TODO roll skills?
+      }
+
+    <`+`/script>`+`
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"><`+`/script>`+`
+    </div>
+  </main>
+</body>
+`;
+document.replaceChild(container, document.children[0]); 
+const allScriptTags = document.querySelectorAll("script");
+for (const script of allScriptTags) console.log(eval(script.textContent));
+</script>
