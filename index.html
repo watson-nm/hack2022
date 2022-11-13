@@ -35,10 +35,16 @@
               </div>
             </div>
             <div class="row mb-3">
-              <div class="col-4">
+              <div class="col-2">
                 <div class="form-floating">
-                  <input class="form-control" id="classLabel" />
-                  <label for="classLabel">Class & Label</label>
+                  <input class="form-control" id="level" />
+                  <label for="level">Level</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-floating">
+                  <input class="form-control" id="class" />
+                  <label for="class">Class</label>
                 </div>
               </div>
               <div class="col-4">
@@ -593,6 +599,48 @@
           }
         }
 
+        var skillMapping = {
+          'skill-acrobatics': 'acrobatics',
+          'skill-animal-handling': 'animalHandling',
+          'skill-arcana': 'arcana',
+          'skill-athletics': 'athletics',
+          'skill-deception': 'deception',
+          'skill-history': 'history',
+          'skill-insight': 'insight',
+          'skill-intimidation': 'intimidation',
+          'skill-investigation': 'investigation',
+          'skill-medicine': 'medicine',
+          'skill-nature': 'nature',
+          'skill-perception': 'perception',
+          'skill-performance': 'performance',
+          'skill-persuasion': 'persuasion',
+          'skill-religion': 'religion',
+          'skill-sleight-of-hand': 'sleightOfHand',
+          'skill-stealth': 'stealth',
+          'skill-survival': 'survival',
+        };
+
+        var skillAbility = {
+          'skill-acrobatics': 'dex',
+          'skill-animal-handling': 'wis',
+          'skill-arcana': 'int',
+          'skill-athletics': 'str',
+          'skill-deception': 'cha',
+          'skill-history': 'int',
+          'skill-insight': 'wis',
+          'skill-intimidation': 'cha',
+          'skill-investigation': 'int',
+          'skill-medicine': 'wis',
+          'skill-nature': 'int',
+          'skill-perception': 'wis',
+          'skill-performance': 'cha',
+          'skill-persuasion': 'cha',
+          'skill-religion': 'int',
+          'skill-sleight-of-hand': 'dex',
+          'skill-stealth': 'dex',
+          'skill-survival': 'wis',
+        };
+
         if ('language_options' in race) {
           var possibleLanguages = race.language_options.from.options.map(i => i.item.name);
           for (var i = 0; i < race.language_options.choose; i++) {
@@ -602,8 +650,35 @@
           }
         }
 
-        console.log(race, selectedLanguages);
         document.getElementById("proficienciesAndLanguages").value = selectedLanguages.join(', ');
+
+        // select proficiencies
+        var selectedProficiencies = [];
+        if ('proficiencies' in clazz) {
+          for (const l of clazz.proficiencies) {
+            selectedProficiencies.push(l.url);
+          }
+        }
+
+        if ('proficiency_choices' in clazz) {
+          var possibleProficiencies = clazz.proficiency_choices[0].from.options.map(i => i.item.url);
+          for (var i = 0; i < clazz.proficiency_choices[0].choose; i++) {
+            var index = Math.floor(Math.random() * possibleProficiencies.length);
+            selectedProficiencies.push(possibleProficiencies[index]);
+            possibleProficiencies.splice(index, 1);
+          }
+        }
+
+        for (const id in skillMapping) {
+          document.getElementById(skillMapping[id]).value = abilities[indices[skillAbility[id]]];
+        }
+
+        for (const proficiency of selectedProficiencies) {
+          const prof = await apiRequest(proficiency);
+          if (prof.type == 'Skills') {
+            document.getElementById(skillMapping[prof.index]).value = +document.getElementById(skillMapping[prof.index]).value + 2;
+          }
+        }
       }
 
       async function randVals() {
@@ -617,8 +692,10 @@
         var randBackground = backgrounds.results[Math.floor(Math.random() * backgrounds.count)];
         var randAlignment = alignments.results[Math.floor(Math.random() * alignments.count)];
 
+        document.getElementById('level').value = 1;
+        document.getElementById('proficiencyBonus').value = 2;
         var name = document.getElementById("characterName");
-        var charClass = document.getElementById("classLabel");
+        var charClass = document.getElementById("class");
         var race = document.getElementById("race");
         var background = document.getElementById("background");
         var alignment = document.getElementById("alignment");
